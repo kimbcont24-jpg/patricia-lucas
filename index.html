@@ -61,7 +61,7 @@ body.menu-open .menu-shade{opacity:1;pointer-events:auto}
 .menu ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;counter-reset:m}
 .menu li{counter-increment:m;opacity:0;transform:translateX(40px);transition:opacity .5s, transform .6s var(--ease)}
 body.menu-open .menu li{opacity:1;transform:none}
-body.menu-open .menu li:nth-child(1){transition-delay:.15s}body.menu-open .menu li:nth-child(2){transition-delay:.21s}body.menu-open .menu li:nth-child(3){transition-delay:.27s}body.menu-open .menu li:nth-child(4){transition-delay:.33s}body.menu-open .menu li:nth-child(5){transition-delay:.39s}body.menu-open .menu li:nth-child(6){transition-delay:.45s}
+body.menu-open .menu li:nth-child(1){transition-delay:.15s}body.menu-open .menu li:nth-child(2){transition-delay:.21s}body.menu-open .menu li:nth-child(3){transition-delay:.27s}body.menu-open .menu li:nth-child(4){transition-delay:.33s}body.menu-open .menu li:nth-child(5){transition-delay:.39s}body.menu-open .menu li:nth-child(6){transition-delay:.45s}body.menu-open .menu li:nth-child(7){transition-delay:.51s}
 .menu a{display:flex;align-items:baseline;gap:16px;font-family:var(--display);font-size:clamp(38px,5vw,54px);text-decoration:none;line-height:1.15;transition:color .3s,padding .4s var(--ease)}
 .menu a::before{content:"0" counter(m);font:700 12px var(--body);letter-spacing:.12em;color:var(--soft)}
 .menu a:hover{color:var(--rose);padding-left:10px}
@@ -113,6 +113,46 @@ body.menu-open .menu li:nth-child(1){transition-delay:.15s}body.menu-open .menu 
 .mic-dust circle:nth-child(2n){animation-delay:-1.4s}
 .mic-stage .onair{top:auto;bottom:12%;left:0}
 @media (max-width:980px){.mic-stage{max-width:420px;margin:0 auto 30px}}
+
+
+/* Video en la portada */
+.hero-video{position:relative;justify-self:center;width:100%;max-width:440px;aspect-ratio:9/13;border-radius:240px 240px 28px 28px;overflow:hidden;margin-bottom:60px;background:#05071A;box-shadow:0 40px 90px -30px rgba(50,72,214,.6),0 0 0 1px rgba(255,255,255,.14);isolation:isolate}
+.hero-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s}
+.hero-video video.fade{opacity:0}
+.hv-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,17,48,.25),transparent 30%,transparent 55%,rgba(8,10,30,.88));pointer-events:none}
+.hero-video .onair{top:24px;left:50%;transform:translateX(-50%)}
+.hv-info{position:absolute;left:22px;right:22px;bottom:22px;display:flex;flex-direction:column;gap:6px;padding:16px 18px;border-radius:20px;background:rgba(12,16,46,.45);backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+.hv-k{font:800 10.5px var(--body);letter-spacing:.2em;text-transform:uppercase;color:#FFB2CB}
+.hv-t{font-family:var(--display);font-size:24px;line-height:1.1}
+.hv-dots{display:flex;gap:6px;margin-top:6px}
+.hv-dots button{all:unset;cursor:pointer;height:4px;flex:1;border-radius:4px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
+.hv-dots button.on{background:rgba(255,255,255,.35)}
+.hv-dots button i{position:absolute;inset:0;width:0;background:#fff}
+.hv-sound{position:absolute;bottom:128px;right:22px;display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:999px;border:0;cursor:pointer;color:#fff;font:700 12.5px var(--body);background:rgba(12,16,46,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.hv-sound svg{width:17px;height:17px}
+.hv-sound .sw{display:none}
+.hv-sound[aria-pressed="true"] .sw{display:inline}.hv-sound[aria-pressed="true"] .sx{display:none}
+.hero-video .onair{display:none}
+/* Sección voz comercial */
+.voz-bg{background:radial-gradient(90% 70% at 15% 40%,#1B2060,var(--night) 70%);color:#fff;overflow:hidden}
+.voz{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.voz .mic-stage{margin:0}
+.voz .eyebrow{color:#FFB2CB}
+.voz h2{font-size:clamp(42px,5.2vw,74px);margin:14px 0 18px}
+.voz h2 em{font-style:italic;color:var(--rose)}
+.voz .lead{color:var(--soft);max-width:48ch}
+.voz-list{list-style:none;margin:30px 0;padding:0;display:flex;flex-direction:column}
+.voz-list li{display:flex;gap:18px;padding:16px 0;border-top:1px solid rgba(255,255,255,.12)}
+.voz-list li:last-child{border-bottom:1px solid rgba(255,255,255,.12)}
+.voz-list b{font:800 12px var(--body);letter-spacing:.14em;color:var(--rose);padding-top:5px}
+.voz-list strong{display:block;font-family:var(--display);font-weight:400;font-size:26px;line-height:1.15}
+.voz-list span{color:var(--soft);font-size:15.5px}
+/* Temas de talleres */
+.topics{margin-top:22px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:24px 26px;border-radius:24px;background:var(--white);border:1px solid var(--line)}
+.topics-k{font:800 12px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
+.topics ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.topics li{font-size:14px;font-weight:600;padding:7px 13px;border-radius:999px;background:var(--paper);border:1px solid var(--line)}
+@media (max-width:980px){.voz{grid-template-columns:1fr}.hero-video{max-width:380px;margin:0 auto 50px}}
 
 /* ---------- Escenarios ---------- */
 .stages{background:var(--white);border-bottom:1px solid var(--line)}
@@ -384,6 +424,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <nav class="menu" id="menu" aria-label="Menú principal">
   <ol>
     <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#voz">Voz comercial</a></li>
     <li><a href="#en-escena">En escena</a></li>
     <li><a href="#por-que">Por qué ella</a></li>
     <li><a href="#cursos">Cursos</a></li>
@@ -409,52 +450,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           <a class="btn" href="#servicios">Ver servicios</a>
         </div>
       </div>
-      <div class="mic-stage rv d1" id="micStage">
-        <svg class="mic-ring" viewBox="0 0 500 500" aria-hidden="true"><defs><path id="ringPath" d="M250 250 m-232 0 a232 232 0 1 1 464 0 a232 232 0 1 1 -464 0"/></defs>
-          <text><textPath href="#ringPath" startOffset="0" textLength="1455" lengthAdjust="spacing">MAESTRÍA DE CEREMONIAS · LOCUCIÓN · ORATORIA · MARCA PERSONAL · CONFERENCIAS · </textPath></text></svg>
-        <svg class="mic-waves" viewBox="0 0 500 500" aria-hidden="true"><circle class="mw w1" cx="250" cy="220" r="80"/><circle class="mw w2" cx="250" cy="220" r="80"/><circle class="mw w3" cx="250" cy="220" r="80"/></svg>
-        <div class="mic-float">
-        <svg class="mic" viewBox="0 0 400 560" role="img" aria-label="Micrófono clásico de transmisión, símbolo de la marca de Patricia Lucas">
-          <defs>
-            <linearGradient id="chrome" x1="0" x2="1"><stop offset="0" stop-color="#2A2F5C"/><stop offset=".18" stop-color="#9BA4DA"/><stop offset=".34" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#C9CEF5"/><stop offset=".66" stop-color="#4A5190"/><stop offset=".82" stop-color="#E9ECFF"/><stop offset="1" stop-color="#1D2250"/></linearGradient>
-            <linearGradient id="rib" x1="0" x2="1"><stop offset="0" stop-color="#1A1E44"/><stop offset=".14" stop-color="#7C85C4"/><stop offset=".3" stop-color="#F7F8FF"/><stop offset=".44" stop-color="#B9C0EE"/><stop offset=".6" stop-color="#3D4483"/><stop offset=".78" stop-color="#DDE1FF"/><stop offset=".92" stop-color="#596199"/><stop offset="1" stop-color="#14183A"/></linearGradient>
-            <linearGradient id="chromeV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6FF"/><stop offset=".5" stop-color="#7D86C6"/><stop offset="1" stop-color="#20254F"/></linearGradient>
-            <radialGradient id="knob" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#AEB5E6"/><stop offset="1" stop-color="#1D2250"/></radialGradient>
-            <radialGradient id="baseGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E24C80" stop-opacity=".85"/><stop offset=".6" stop-color="#E24C80" stop-opacity=".18"/><stop offset="1" stop-color="#E24C80" stop-opacity="0"/></radialGradient>
-            <linearGradient id="roseEdge" x1="0" x2="1"><stop offset="0" stop-color="#FF5C93" stop-opacity=".75"/><stop offset=".25" stop-color="#FF5C93" stop-opacity="0"/><stop offset=".8" stop-color="#5B74FF" stop-opacity="0"/><stop offset="1" stop-color="#5B74FF" stop-opacity=".7"/></linearGradient>
-            <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="1"><stop offset=".38" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".85"/><stop offset=".62" stop-color="#fff" stop-opacity="0"/></linearGradient>
-            <clipPath id="bodyClip"><path d="M200 58C292 58 306 122 306 196S292 334 200 334 94 270 94 196 108 58 200 58Z"/></clipPath>
-            <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
-            <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#05071A" flood-opacity=".65"/></filter>
-          </defs>
-          <ellipse cx="200" cy="512" rx="150" ry="26" fill="url(#baseGlow)"/>
-          <g filter="url(#shadow)">
-            <!-- soporte -->
-            <path d="M92 210C92 330 140 386 200 386S308 330 308 210" fill="none" stroke="url(#chrome)" stroke-width="12" stroke-linecap="round"/>
-            <rect x="189" y="384" width="22" height="104" rx="6" fill="url(#chrome)"/>
-            <rect x="182" y="380" width="36" height="16" rx="5" fill="url(#chromeV)"/>
-            <ellipse cx="200" cy="496" rx="96" ry="17" fill="url(#chromeV)"/>
-            <ellipse cx="200" cy="490" rx="88" ry="11" fill="url(#chrome)"/>
-            <!-- cuerpo -->
-            <path d="M200 58C292 58 306 122 306 196S292 334 200 334 94 270 94 196 108 58 200 58Z" fill="#0E1233"/>
-            <g clip-path="url(#bodyClip)">
-              <rect x="88" y="78" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="86" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="94" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="102" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="110" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="118" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="126" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="134" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="142" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="150" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="158" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="166" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="174" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="182" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="190" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="198" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="206" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="214" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="222" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="230" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="238" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="246" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="254" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="262" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="270" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="278" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="286" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="294" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="302" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="310" width="224" height="4.6" rx="2.3" fill="url(#rib)"/>
-              <rect x="88" y="50" width="224" height="300" fill="url(#roseEdge)" style="mix-blend-mode:screen"/>
-              <rect x="132" y="70" width="16" height="250" rx="8" fill="#fff" opacity=".45" filter="url(#soft)"/>
-              <rect class="mic-sweep" x="-200" y="40" width="260" height="320" fill="url(#sweep)" style="mix-blend-mode:overlay"/>
-            </g>
-            <rect x="190" y="60" width="20" height="272" rx="10" fill="url(#chrome)"/>
-            <rect x="196" y="66" width="4" height="260" rx="2" fill="#fff" opacity=".7"/>
-            <path d="M200 58C292 58 306 122 306 196S292 334 200 334 94 270 94 196 108 58 200 58Z" fill="none" stroke="url(#chrome)" stroke-width="7"/>
-            <circle cx="92" cy="210" r="15" fill="url(#knob)"/><circle cx="308" cy="210" r="15" fill="url(#knob)"/>
-            <circle cx="92" cy="210" r="5" fill="#1A1E44"/><circle cx="308" cy="210" r="5" fill="#1A1E44"/>
-            <!-- luz al aire -->
-            <circle class="mic-led" cx="200" cy="356" r="6" fill="#FF3D6E"/>
-          </g>
-          <g fill="#fff" class="mic-dust"><circle cx="60" cy="90" r="2"/><circle cx="350" cy="140" r="1.6"/><circle cx="330" cy="300" r="2.2"/><circle cx="48" cy="330" r="1.4"/><circle cx="370" cy="420" r="1.8"/></g>
-        </svg>
-        </div>
-        <span class="onair"><i></i>Al aire</span>
+      <div class="hero-video rv d1" id="heroVideo">
+        <video id="hv" src="video4.mp4" poster="poster4.jpg" autoplay muted playsinline preload="auto"></video>
+        <span class="hv-shade" aria-hidden="true"></span>
+        <span class="onair"><i></i>En escena</span>
+        <div class="hv-info"><span class="hv-k">Ahora viendo</span><span class="hv-t" id="hvT">XXVII Feria Internacional del Libro</span>
+          <div class="hv-dots" id="hvDots"><button type="button" aria-label="Video 1" class="on"></button><button type="button" aria-label="Video 2"></button><button type="button" aria-label="Video 3"></button><button type="button" aria-label="Video 4"></button></div></div>
+        <button class="hv-sound" id="hvSound" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="sx" d="M17 9l4 6M21 9l-4 6"/><path class="sw" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span>Activar sonido</span></button>
       </div>
     </div>
     <canvas id="wave" aria-hidden="true"></canvas>
@@ -580,6 +582,71 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     </div>
   </section>
 
+  <!-- VOZ COMERCIAL -->
+  <section class="block voz-bg" id="voz">
+    <div class="wrap voz">
+      <div class="mic-stage rv" id="micStage">
+        <svg class="mic-ring" viewBox="0 0 500 500" aria-hidden="true"><defs><path id="ringPath" d="M250 250 m-232 0 a232 232 0 1 1 464 0 a232 232 0 1 1 -464 0"/></defs>
+          <text><textPath href="#ringPath" startOffset="0" textLength="1455" lengthAdjust="spacing">MAESTRÍA DE CEREMONIAS · LOCUCIÓN · ORATORIA · MARCA PERSONAL · CONFERENCIAS · </textPath></text></svg>
+        <svg class="mic-waves" viewBox="0 0 500 500" aria-hidden="true"><circle class="mw w1" cx="250" cy="220" r="80"/><circle class="mw w2" cx="250" cy="220" r="80"/><circle class="mw w3" cx="250" cy="220" r="80"/></svg>
+        <div class="mic-float">
+        <svg class="mic" viewBox="0 0 400 560" role="img" aria-label="Micrófono clásico de transmisión, símbolo de la marca de Patricia Lucas">
+          <defs>
+            <linearGradient id="chrome" x1="0" x2="1"><stop offset="0" stop-color="#2A2F5C"/><stop offset=".18" stop-color="#9BA4DA"/><stop offset=".34" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#C9CEF5"/><stop offset=".66" stop-color="#4A5190"/><stop offset=".82" stop-color="#E9ECFF"/><stop offset="1" stop-color="#1D2250"/></linearGradient>
+            <linearGradient id="rib" x1="0" x2="1"><stop offset="0" stop-color="#1A1E44"/><stop offset=".14" stop-color="#7C85C4"/><stop offset=".3" stop-color="#F7F8FF"/><stop offset=".44" stop-color="#B9C0EE"/><stop offset=".6" stop-color="#3D4483"/><stop offset=".78" stop-color="#DDE1FF"/><stop offset=".92" stop-color="#596199"/><stop offset="1" stop-color="#14183A"/></linearGradient>
+            <linearGradient id="chromeV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6FF"/><stop offset=".5" stop-color="#7D86C6"/><stop offset="1" stop-color="#20254F"/></linearGradient>
+            <radialGradient id="knob" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#AEB5E6"/><stop offset="1" stop-color="#1D2250"/></radialGradient>
+            <radialGradient id="baseGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E24C80" stop-opacity=".85"/><stop offset=".6" stop-color="#E24C80" stop-opacity=".18"/><stop offset="1" stop-color="#E24C80" stop-opacity="0"/></radialGradient>
+            <linearGradient id="roseEdge" x1="0" x2="1"><stop offset="0" stop-color="#FF5C93" stop-opacity=".75"/><stop offset=".25" stop-color="#FF5C93" stop-opacity="0"/><stop offset=".8" stop-color="#5B74FF" stop-opacity="0"/><stop offset="1" stop-color="#5B74FF" stop-opacity=".7"/></linearGradient>
+            <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="1"><stop offset=".38" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".85"/><stop offset=".62" stop-color="#fff" stop-opacity="0"/></linearGradient>
+            <clipPath id="bodyClip"><path d="M200 58C292 58 306 122 306 196S292 334 200 334 94 270 94 196 108 58 200 58Z"/></clipPath>
+            <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+            <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#05071A" flood-opacity=".65"/></filter>
+          </defs>
+          <ellipse cx="200" cy="512" rx="150" ry="26" fill="url(#baseGlow)"/>
+          <g filter="url(#shadow)">
+            <!-- soporte -->
+            <path d="M92 210C92 330 140 386 200 386S308 330 308 210" fill="none" stroke="url(#chrome)" stroke-width="12" stroke-linecap="round"/>
+            <rect x="189" y="384" width="22" height="104" rx="6" fill="url(#chrome)"/>
+            <rect x="182" y="380" width="36" height="16" rx="5" fill="url(#chromeV)"/>
+            <ellipse cx="200" cy="496" rx="96" ry="17" fill="url(#chromeV)"/>
+            <ellipse cx="200" cy="490" rx="88" ry="11" fill="url(#chrome)"/>
+            <!-- cuerpo -->
+            <path d="M200 58C292 58 306 122 306 196S292 334 200 334 94 270 94 196 108 58 200 58Z" fill="#0E1233"/>
+            <g clip-path="url(#bodyClip)">
+              <rect x="88" y="78" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="86" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="94" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="102" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="110" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="118" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="126" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="134" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="142" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="150" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="158" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="166" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="174" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="182" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="190" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="198" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="206" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="214" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="222" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="230" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="238" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="246" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="254" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="262" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="270" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="278" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="286" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="294" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="302" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="310" width="224" height="4.6" rx="2.3" fill="url(#rib)"/>
+              <rect x="88" y="50" width="224" height="300" fill="url(#roseEdge)" style="mix-blend-mode:screen"/>
+              <rect x="132" y="70" width="16" height="250" rx="8" fill="#fff" opacity=".45" filter="url(#soft)"/>
+              <rect class="mic-sweep" x="-200" y="40" width="260" height="320" fill="url(#sweep)" style="mix-blend-mode:overlay"/>
+            </g>
+            <rect x="190" y="60" width="20" height="272" rx="10" fill="url(#chrome)"/>
+            <rect x="196" y="66" width="4" height="260" rx="2" fill="#fff" opacity=".7"/>
+            <path d="M200 58C292 58 306 122 306 196S292 334 200 334 94 270 94 196 108 58 200 58Z" fill="none" stroke="url(#chrome)" stroke-width="7"/>
+            <circle cx="92" cy="210" r="15" fill="url(#knob)"/><circle cx="308" cy="210" r="15" fill="url(#knob)"/>
+            <circle cx="92" cy="210" r="5" fill="#1A1E44"/><circle cx="308" cy="210" r="5" fill="#1A1E44"/>
+            <!-- luz al aire -->
+            <circle class="mic-led" cx="200" cy="356" r="6" fill="#FF3D6E"/>
+          </g>
+          <g fill="#fff" class="mic-dust"><circle cx="60" cy="90" r="2"/><circle cx="350" cy="140" r="1.6"/><circle cx="330" cy="300" r="2.2"/><circle cx="48" cy="330" r="1.4"/><circle cx="370" cy="420" r="1.8"/></g>
+        </svg>
+        </div>
+        <span class="onair"><i></i>Al aire</span>
+      </div>
+      <div>
+        <span class="eyebrow rv">Voz comercial</span>
+        <h2 class="rv d1">Tu marca merece <em>sonar</em> así de bien</h2>
+        <p class="lead rv d2">Una voz cálida, clara y confiable para todo lo que tu marca dice en voz alta. Grabación profesional, entregas puntuales y el tono exacto que tu público necesita escuchar.</p>
+        <ol class="voz-list">
+          <li class="rv"><b>01</b><span><strong>Spots de radio, TV y redes</strong>Anuncios que se escuchan y se recuerdan.</span></li>
+          <li class="rv d1"><b>02</b><span><strong>Voz institucional</strong>Videos corporativos, presentaciones y campañas internas.</span></li>
+          <li class="rv d2"><b>03</b><span><strong>Mensajes telefónicos</strong>Bienvenida, menú de opciones y mensajes en espera para tu central.</span></li>
+          <li class="rv d3"><b>04</b><span><strong>Narración</strong>Cursos e-learning, inducciones, audiolibros y podcasts.</span></li>
+        </ol>
+        <div class="ctas rv"><button class="btn rose" type="button" data-interes="Locución">Solicitar demo de voz <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      </div>
+    </div>
+  </section>
+
   <!-- EN ESCENA -->
   <section class="block stage-bg" id="en-escena">
     <div class="wrap">
@@ -643,6 +710,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           <div class="course-body"><span class="k">Empresas</span><h3>Comunicación para equipos</h3><p>Programa a la medida para presentar resultados, liderar reuniones y atender al público.</p></div>
           <div class="meta"><span>Se cotiza por grupo</span><button type="button" data-interes="Capacitación para mi equipo">Solicitar propuesta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
         </article>
+      </div>
+      <div class="topics rv">
+        <span class="topics-k">Talleres para empresas</span>
+        <ul><li>Oratoria para líderes</li><li>Presentaciones efectivas</li><li>Atención telefónica con voz profesional</li><li>Comunicación con clientes</li><li>Preparación de voceros</li><li>Maestría de ceremonias para eventos internos</li><li>Voz y presencia en reuniones virtuales</li></ul>
+        <button class="btn royal" type="button" data-interes="Capacitación para mi equipo">Diseñar un taller para mi equipo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </div>
     </div>
   </section>
@@ -825,10 +897,38 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     size(); window.addEventListener('resize', size); requestAnimationFrame(loop);
   }
 
+  /* Video de portada: recorre varios clips */
+  var hv = document.getElementById('hv');
+  if (hv) {
+    var clips = [['video4.mp4','poster4.jpg','XXVII Feria Internacional del Libro'],['video1.mp4','poster1.jpg','Congreso Regional PREIE 2026'],['video6.mp4','poster6.jpg','Actividad del IDEICE'],['video8.mp4','poster8.jpg','Acto de clausura académico']];
+    var ci = 0, dots = Array.prototype.slice.call(document.querySelectorAll('#hvDots button')), hvT = document.getElementById('hvT');
+    dots.forEach(function(d){ var i = document.createElement('i'); d.appendChild(i); });
+    function showClip(i){
+      ci = (i + clips.length) % clips.length;
+      hv.classList.add('fade');
+      setTimeout(function(){
+        hv.src = clips[ci][0]; hv.poster = clips[ci][1]; hvT.textContent = clips[ci][2];
+        var pr = hv.play(); if (pr && pr.catch) pr.catch(function(){});
+        hv.classList.remove('fade');
+      }, 350);
+      dots.forEach(function(d, k){ d.classList.toggle('on', k === ci); d.firstChild.style.width = k < ci ? '100%' : '0'; });
+    }
+    hv.addEventListener('timeupdate', function(){ if (hv.duration) dots[ci].firstChild.style.width = (hv.currentTime / hv.duration * 100) + '%'; });
+    hv.addEventListener('ended', function(){ showClip(ci + 1); });
+    dots.forEach(function(d, k){ d.addEventListener('click', function(){ showClip(k); }); });
+    var snd = document.getElementById('hvSound');
+    snd.addEventListener('click', function(){
+      hv.muted = !hv.muted; snd.setAttribute('aria-pressed', !hv.muted);
+      snd.querySelector('span').textContent = hv.muted ? 'Activar sonido' : 'Silenciar';
+      if (!hv.muted) { var pr = hv.play(); if (pr && pr.catch) pr.catch(function(){}); }
+    });
+    if (reduce) { hv.removeAttribute('autoplay'); hv.pause(); }
+  }
+
   /* Micrófono: sigue el cursor */
   var stage = document.getElementById('micStage');
   if (stage && !reduce && window.matchMedia('(hover:hover)').matches) {
-    var hero = document.querySelector('.hero'), mic = stage.querySelector('.mic');
+    var hero = document.getElementById('voz'), mic = stage.querySelector('.mic');
     hero.addEventListener('mousemove', function(e){
       var r = stage.getBoundingClientRect();
       var x = (e.clientX - (r.left + r.width/2)) / r.width, y = (e.clientY - (r.top + r.height/2)) / r.height;
