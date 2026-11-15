@@ -157,6 +157,87 @@ section{position:relative}
 .seat{fill:#fff;fill-opacity:.18}.lit{fill:#FFD166;animation:twinkle 2.6s ease-in-out infinite}
 .acc-item:not(.active) .cover *{animation-play-state:paused}
 
+
+/* ===== Acabado premium de tarjetas ===== */
+.acc{gap:14px;height:640px}
+.acc-item{border-radius:30px;isolation:isolate;box-shadow:0 40px 70px -40px rgba(12,17,48,.65),0 2px 6px rgba(12,17,48,.12);transition:flex 1s var(--ease),transform .5s var(--ease),box-shadow .5s}
+.acc-item:not(.active):hover{transform:translateY(-6px)}
+.acc-item::before{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),inset 0 1px 0 rgba(255,255,255,.28);z-index:6;pointer-events:none}
+.acc-item::after{background:linear-gradient(180deg,rgba(10,13,38,.45) 0%,rgba(10,13,38,0) 22%,rgba(10,13,38,0) 48%,rgba(8,10,30,.78) 100%);z-index:1}
+.acc-grain{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px;opacity:.13;mix-blend-mode:overlay;z-index:1;pointer-events:none}
+.acc-sheen{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.22) 48%,transparent 60%);transform:translateX(-120%);transition:transform 1.3s var(--ease)}
+.acc-item:hover .acc-sheen,.acc-item.active.run .acc-sheen{transform:translateX(120%)}
+.acc-top{position:absolute;z-index:5;top:20px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:12px;padding:0 20px;transition:all .6s var(--ease)}
+.acc-item.active .acc-top{flex-direction:row;justify-content:space-between}
+.acc-chip{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);backdrop-filter:blur(10px) saturate(150%);-webkit-backdrop-filter:blur(10px) saturate(150%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 8px 20px rgba(0,0,0,.18);color:#fff;flex:none;transition:background .4s,transform .5s var(--ease)}
+.acc-item:hover .acc-chip{transform:rotate(-8deg) scale(1.06)}
+.acc-item.active .acc-chip{background:var(--rose);box-shadow:0 10px 24px rgba(226,76,128,.45)}
+.acc-chip svg{width:21px;height:21px}
+.acc-num{position:static;transform:none;font:800 12px var(--body);letter-spacing:.14em;color:#fff;opacity:.85}
+.acc-item .acc-num em{display:none;font-style:normal;opacity:.55}
+.acc-item.active .acc-num em{display:inline}
+.acc-item.active .acc-num{left:auto}
+.acc-label{z-index:5;bottom:84px;font-size:12px;letter-spacing:.24em;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+.acc-plus{position:absolute;z-index:5;left:50%;bottom:24px;width:40px;height:40px;margin-left:-20px;border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3);transition:opacity .4s,transform .5s var(--ease)}
+.acc-plus::before,.acc-plus::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1.8px;margin:-.9px 0 0 -7px;background:#fff;border-radius:2px}
+.acc-plus::after{transform:rotate(90deg)}
+.acc-item:hover .acc-plus{transform:rotate(90deg)}
+.acc-item.active .acc-plus{opacity:0;transform:scale(.6)}
+.acc-bar{z-index:5;top:84px;left:22px;right:22px;height:2px;border-radius:2px;background:rgba(255,255,255,.2)}
+.acc-bar i{border-radius:2px;background:linear-gradient(90deg,#fff,var(--rose))}
+.acc-body{z-index:5;left:20px;right:20px;bottom:20px;max-width:600px;gap:12px;padding:26px 28px;border-radius:22px;background:rgba(12,16,46,.5);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),inset 0 1px 0 rgba(255,255,255,.22),0 20px 40px rgba(0,0,0,.25)}
+.acc-kicker{font:800 11px var(--body);letter-spacing:.2em;text-transform:uppercase;color:#FFB2CB}
+.acc-body h3{font-size:clamp(34px,3.4vw,50px);line-height:1}
+.acc-body p{color:#E3E6FA;font-size:15.5px;line-height:1.55}
+.acc-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:6px}
+.acc-body li{font-size:12px;padding:5px 11px;border-color:rgba(255,255,255,.26);background:rgba(255,255,255,.06)}
+.acc-cta{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;background:#fff;color:var(--night);font:800 14px var(--body);text-decoration:none;transition:transform .3s var(--ease),background .3s,color .3s;flex:none}
+.acc-cta svg{width:15px;height:15px;transition:transform .3s var(--ease)}
+.acc-cta:hover{background:var(--rose);color:#fff}
+.acc-cta:hover svg{transform:translateX(3px)}
+
+/* Cursos con portada */
+.courses .course{padding:0;overflow:hidden;gap:0;border-radius:26px;position:relative;box-shadow:0 1px 2px rgba(12,17,48,.06)}
+.course-art{position:relative;height:150px;overflow:hidden;display:flex;align-items:flex-end;justify-content:space-between;padding:18px 20px}
+.c1 .course-art{background:radial-gradient(120% 120% at 100% 0,#4F66F0,#151E72)}
+.c2 .course-art{background:linear-gradient(135deg,#F0578C,#9A36C9 60%,#3A2096)}
+.c3 .course-art{background:linear-gradient(160deg,#1B1660,#0A0E2A)}
+.c4 .course-art{background:linear-gradient(150deg,#0F3B4F,#0B1030)}
+.course-art::before{content:"";position:absolute;width:180px;height:180px;right:-50px;top:-70px;border-radius:50%;border:1px solid rgba(255,255,255,.22);box-shadow:0 0 0 26px rgba(255,255,255,.05),0 0 0 54px rgba(255,255,255,.03);transition:transform 1s var(--ease)}
+.course:hover .course-art::before{transform:scale(1.2)}
+.course-n{position:relative;z-index:2;font-family:var(--display);font-style:italic;font-size:64px;line-height:.8;color:#fff}
+.course-ic{position:relative;z-index:2;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3);transition:transform .5s var(--ease)}
+.course:hover .course-ic{transform:rotate(-10deg) scale(1.08)}
+.course-ic svg{width:20px;height:20px}
+.courses .course-body{padding:22px 22px 6px;display:flex;flex-direction:column;gap:10px}
+.courses .course .meta{margin:auto 22px 0;padding:16px 0 20px;font-size:12px}
+.courses .course .meta span{max-width:12ch;line-height:1.35}
+.courses .course button{white-space:nowrap;font-size:13.5px}
+.course button{gap:8px}
+.course button svg{width:14px;height:14px;transition:transform .3s var(--ease)}
+.course button:hover svg{transform:translateX(3px)}
+.course::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-120%);transition:transform 1.2s var(--ease)}
+.course:hover::after{transform:translateX(120%)}
+
+/* Tarjetas apiladas con textura */
+.stack-card{overflow:hidden;isolation:isolate}
+.stack-card::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px;opacity:.08;mix-blend-mode:overlay;pointer-events:none;z-index:-1}
+.stack-card::before{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);pointer-events:none}
+.stack-card:nth-child(1)::before{box-shadow:inset 0 0 0 1px var(--line)}
+
+@media (max-width:980px){
+  .acc-item{height:92px}
+  .acc-item.active{height:560px}
+  .acc .acc-top{flex-direction:row;justify-content:flex-start;top:23px;gap:14px}
+  .acc .acc-item.active .acc-top{justify-content:space-between}
+  .acc-item:not(.active) .acc-num{order:-1}
+  .acc .acc-label{left:118px;top:36px;bottom:auto;writing-mode:horizontal-tb;transform:none}
+  .acc .acc-item:not(.active) .cover{filter:saturate(.6) brightness(.42)}
+  .acc-plus{left:auto;right:22px;top:26px;bottom:auto;margin:0}
+  .acc-bar{top:82px}
+  .acc-body{padding:20px}
+}
+
 /* ---------- En escena (videos tipo Luisa) ---------- */
 .stage-bg{background:var(--night);color:#fff;overflow:hidden}
 .stage-bg .eyebrow{color:#FFB2CB}
@@ -340,7 +421,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <p class="rv d2">Pasa el cursor o toca cada tarjeta. Desde la conducción de tu congreso hasta la voz de tu marca.</p>
       </div>
       <div class="acc rv" id="acc">
-        <div class="acc-item active" role="button" tabindex="0" aria-expanded="true">
+        <div class="acc-item active" role="button" tabindex="0" aria-expanded="true" aria-label="Maestría de ceremonias">
           <span class="cover cv1" aria-hidden="true"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
 <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1660"/><stop offset="1" stop-color="#0A0E2A"/></linearGradient>
 <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
@@ -354,10 +435,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <g stroke="#fff" stroke-opacity=".5" stroke-width="3"><path d="M182 280h36M182 298h36M182 316h36"/></g>
 <g fill="#fff"><circle class="spark s1" cx="90" cy="150" r="2.5"/><circle class="spark s2" cx="320" cy="110" r="2"/><circle class="spark s3" cx="270" cy="220" r="2.5"/><circle class="spark s1" cx="120" cy="260" r="1.8"/></g>
 </svg></span>
-          <span class="acc-num">01</span><span class="acc-label">Maestría de ceremonias</span><span class="acc-bar"><i></i></span>
-          <span class="acc-body"><h3>Maestría de ceremonias</h3><p>Conduce congresos, ferias, lanzamientos y actos institucionales con guion, ritmo y protocolo. Tu programa fluye y tus invitados se sienten atendidos.</p><ul><li>Congresos</li><li>Actos oficiales</li><li>Lanzamientos</li><li>Galas</li></ul></span>
+          <span class="acc-grain" aria-hidden="true"></span><span class="acc-sheen" aria-hidden="true"></span>
+          <span class="acc-top"><span class="acc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8.5 21h7"/></svg></span><span class="acc-num">01<em> / 05</em></span></span>
+          <span class="acc-label">Maestría de ceremonias</span>
+          <span class="acc-plus" aria-hidden="true"></span>
+          <span class="acc-bar"><i></i></span>
+          <span class="acc-body"><span class="acc-kicker">Servicio 01 · Eventos</span><h3>Maestría de ceremonias</h3><p>Conduce congresos, ferias, lanzamientos y actos institucionales con guion, ritmo y protocolo. Tu programa fluye y tus invitados se sienten atendidos.</p><span class="acc-foot"><ul><li>Congresos</li><li>Actos oficiales</li><li>Lanzamientos</li><li>Galas</li></ul><a class="acc-cta" href="#contacto" data-interes="Maestría de ceremonias para un evento">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></span>
         </div>
-        <div class="acc-item" role="button" tabindex="0" aria-expanded="false">
+        <div class="acc-item" role="button" tabindex="0" aria-expanded="false" aria-label="Locución">
           <span class="cover cv2" aria-hidden="true"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
 <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0578C"/><stop offset=".55" stop-color="#9A36C9"/><stop offset="1" stop-color="#3A2096"/></linearGradient></defs>
 <rect width="400" height="600" fill="url(#g2)"/>
@@ -368,10 +453,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </g>
 <path d="M30 420 C 120 400, 160 440, 240 415 S 350 400, 370 420" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>
 </svg></span>
-          <span class="acc-num">02</span><span class="acc-label">Locución</span><span class="acc-bar"><i></i></span>
-          <span class="acc-body"><h3>Locución</h3><p>La voz de tu marca: anuncios, videos institucionales, mensajes telefónicos y narración de cursos, con una voz cálida y clara.</p><ul><li>Comerciales</li><li>Institucional</li><li>Mensajes telefónicos</li><li>E-learning</li></ul></span>
+          <span class="acc-grain" aria-hidden="true"></span><span class="acc-sheen" aria-hidden="true"></span>
+          <span class="acc-top"><span class="acc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 12h1M6.5 8v8M10 5v14M13.5 9v6M17 6.5v11M20.5 10.5v3"/></svg></span><span class="acc-num">02<em> / 05</em></span></span>
+          <span class="acc-label">Locución</span>
+          <span class="acc-plus" aria-hidden="true"></span>
+          <span class="acc-bar"><i></i></span>
+          <span class="acc-body"><span class="acc-kicker">Servicio 02 · Marcas</span><h3>Locución</h3><p>La voz de tu marca en anuncios, videos institucionales, mensajes telefónicos y narración de cursos, con un tono cálido, claro y confiable.</p><span class="acc-foot"><ul><li>Comerciales</li><li>Institucional</li><li>Mensajes telefónicos</li><li>E-learning</li></ul><a class="acc-cta" href="#contacto" data-interes="Locución">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></span>
         </div>
-        <div class="acc-item" role="button" tabindex="0" aria-expanded="false">
+        <div class="acc-item" role="button" tabindex="0" aria-expanded="false" aria-label="Oratoria y cursos">
           <span class="cover cv3" aria-hidden="true"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
 <defs><radialGradient id="g3" cx=".5" cy=".45" r=".75"><stop offset="0" stop-color="#4F66F0"/><stop offset="1" stop-color="#151E72"/></radialGradient></defs>
 <rect width="400" height="600" fill="url(#g3)"/>
@@ -381,10 +470,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <g fill="#3248D6"><circle cx="172" cy="272" r="7"/><circle cx="200" cy="272" r="7"/><circle cx="228" cy="272" r="7"/></g>
 <g font-family="Instrument Serif,Georgia,serif" font-style="italic" fill="#fff" fill-opacity=".22" font-size="40"><text x="40" y="120">respira</text><text x="250" y="160">pausa</text><text x="60" y="470">proyecta</text><text x="240" y="510">conecta</text></g>
 </svg></span>
-          <span class="acc-num">03</span><span class="acc-label">Oratoria y cursos</span><span class="acc-bar"><i></i></span>
-          <span class="acc-body"><h3>Oratoria y cursos</h3><p>Programas para perder el miedo escénico, proyectar la voz y estructurar mensajes que se recuerdan. Para personas y para equipos.</p><ul><li>Grupales</li><li>In company</li><li>Presencial y virtual</li></ul></span>
+          <span class="acc-grain" aria-hidden="true"></span><span class="acc-sheen" aria-hidden="true"></span>
+          <span class="acc-top"><span class="acc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4.5 3.5V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M8 11h.01M12 11h.01M16 11h.01" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="acc-num">03<em> / 05</em></span></span>
+          <span class="acc-label">Oratoria y cursos</span>
+          <span class="acc-plus" aria-hidden="true"></span>
+          <span class="acc-bar"><i></i></span>
+          <span class="acc-body"><span class="acc-kicker">Servicio 03 · Formación</span><h3>Oratoria y cursos</h3><p>Programas para perder el miedo escénico, proyectar la voz y estructurar mensajes que se recuerdan. Para personas y para equipos.</p><span class="acc-foot"><ul><li>Grupales</li><li>In company</li><li>Presencial y virtual</li></ul><a class="acc-cta" href="#contacto" data-interes="Curso: Habla con seguridad">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></span>
         </div>
-        <div class="acc-item" role="button" tabindex="0" aria-expanded="false">
+        <div class="acc-item" role="button" tabindex="0" aria-expanded="false" aria-label="Marca personal y voceros">
           <span class="cover cv4" aria-hidden="true"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
 <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE3EC"/><stop offset=".6" stop-color="#F7C9DA"/><stop offset="1" stop-color="#C9CEF5"/></linearGradient></defs>
 <rect width="400" height="600" fill="url(#g4)"/>
@@ -393,12 +486,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <text x="40" y="360" font-family="Instrument Serif,Georgia,serif" font-style="italic" font-size="270" fill="#3248D6">P</text>
 <text x="170" y="360" font-family="Instrument Serif,Georgia,serif" font-size="270" fill="#11152E">L</text>
 <path class="sign" d="M60 430 C 100 390, 130 470, 165 420 S 220 380, 240 430 S 300 470, 345 410" fill="none" stroke="#E24C80" stroke-width="5" stroke-linecap="round"/>
-<g font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="13" letter-spacing="4" fill="#11152E" fill-opacity=".55"><text x="40" y="150">VOZ · PRESENCIA · AUTORIDAD</text></g>
+
 </svg></span>
-          <span class="acc-num">04</span><span class="acc-label">Marca personal</span><span class="acc-bar"><i></i></span>
-          <span class="acc-body"><h3>Marca personal y voceros</h3><p>Acompaña a líderes y voceros para que su voz y su presencia transmitan la misma autoridad que su trayectoria, frente a medios, juntas o escenarios.</p><ul><li>Voceros</li><li>Ejecutivos</li><li>Entrevistas</li></ul></span>
+          <span class="acc-grain" aria-hidden="true"></span><span class="acc-sheen" aria-hidden="true"></span>
+          <span class="acc-top"><span class="acc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></span><span class="acc-num">04<em> / 05</em></span></span>
+          <span class="acc-label">Marca personal</span>
+          <span class="acc-plus" aria-hidden="true"></span>
+          <span class="acc-bar"><i></i></span>
+          <span class="acc-body"><span class="acc-kicker">Servicio 04 · Líderes</span><h3>Marca personal y voceros</h3><p>Acompaña a líderes y voceros para que su voz y su presencia transmitan la misma autoridad que su trayectoria, frente a medios, juntas o escenarios.</p><span class="acc-foot"><ul><li>Voceros</li><li>Ejecutivos</li><li>Entrevistas</li></ul><a class="acc-cta" href="#contacto" data-interes="Preparación de voceros">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></span>
         </div>
-        <div class="acc-item" role="button" tabindex="0" aria-expanded="false">
+        <div class="acc-item" role="button" tabindex="0" aria-expanded="false" aria-label="Conferencias">
           <span class="cover cv5" aria-hidden="true"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
 <defs><linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0F3B4F"/><stop offset="1" stop-color="#0B1030"/></linearGradient>
 <radialGradient id="glow5" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD166" stop-opacity=".55"/><stop offset="1" stop-color="#FFD166" stop-opacity="0"/></radialGradient></defs>
@@ -408,8 +505,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <path d="M150 300h100l-12 120h-76z" fill="#fff" fill-opacity=".92"/><rect x="138" y="288" width="124" height="16" rx="4" fill="#fff"/>
 <g><circle class="lit" cx="30" cy="470" r="9" /><circle class="seat" cx="68" cy="470" r="9" /><circle class="seat" cx="106" cy="470" r="9" /><circle class="seat" cx="144" cy="470" r="9" /><circle class="seat" cx="182" cy="470" r="9" /><circle class="lit" cx="220" cy="470" r="9" /><circle class="seat" cx="258" cy="470" r="9" /><circle class="seat" cx="296" cy="470" r="9" /><circle class="seat" cx="334" cy="470" r="9" /><circle class="seat" cx="372" cy="470" r="9" /><circle class="seat" cx="49" cy="504" r="8" /><circle class="lit" cx="87" cy="504" r="8" /><circle class="seat" cx="125" cy="504" r="8" /><circle class="seat" cx="163" cy="504" r="8" /><circle class="seat" cx="201" cy="504" r="8" /><circle class="seat" cx="239" cy="504" r="8" /><circle class="lit" cx="277" cy="504" r="8" /><circle class="seat" cx="315" cy="504" r="8" /><circle class="seat" cx="353" cy="504" r="8" /><circle class="seat" cx="391" cy="504" r="8" /><circle class="seat" cx="30" cy="538" r="7" /><circle class="seat" cx="68" cy="538" r="7" /><circle class="lit" cx="106" cy="538" r="7" /><circle class="seat" cx="144" cy="538" r="7" /><circle class="seat" cx="182" cy="538" r="7" /><circle class="seat" cx="220" cy="538" r="7" /><circle class="seat" cx="258" cy="538" r="7" /><circle class="lit" cx="296" cy="538" r="7" /><circle class="seat" cx="334" cy="538" r="7" /><circle class="seat" cx="372" cy="538" r="7" /><circle class="seat" cx="49" cy="572" r="6" /><circle class="seat" cx="87" cy="572" r="6" /><circle class="seat" cx="125" cy="572" r="6" /><circle class="lit" cx="163" cy="572" r="6" /><circle class="seat" cx="201" cy="572" r="6" /><circle class="seat" cx="239" cy="572" r="6" /><circle class="seat" cx="277" cy="572" r="6" /><circle class="seat" cx="315" cy="572" r="6" /><circle class="lit" cx="353" cy="572" r="6" /><circle class="seat" cx="391" cy="572" r="6" /></g>
 </svg></span>
-          <span class="acc-num">05</span><span class="acc-label">Conferencias</span><span class="acc-bar"><i></i></span>
-          <span class="acc-body"><h3>Conferencias</h3><p>Charlas sobre el poder de la voz y la comunicación con intención, adaptadas a congresos, empresas e instituciones educativas.</p><ul><li>Empresas</li><li>Universidades</li><li>Congresos</li></ul></span>
+          <span class="acc-grain" aria-hidden="true"></span><span class="acc-sheen" aria-hidden="true"></span>
+          <span class="acc-top"><span class="acc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M4 9h16M6 9l1.5 12h9L18 9M9 5.5a3 3 0 0 1 6 0"/><path d="M12 9v4"/></svg></span><span class="acc-num">05<em> / 05</em></span></span>
+          <span class="acc-label">Conferencias</span>
+          <span class="acc-plus" aria-hidden="true"></span>
+          <span class="acc-bar"><i></i></span>
+          <span class="acc-body"><span class="acc-kicker">Servicio 05 · Congresos</span><h3>Conferencias</h3><p>Charlas sobre el poder de la voz y la comunicación con intención, adaptadas a congresos, empresas e instituciones educativas.</p><span class="acc-foot"><ul><li>Empresas</li><li>Universidades</li><li>Congresos</li></ul><a class="acc-cta" href="#contacto" data-interes="Conferencia">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></span>
         </div>
       </div>
     </div>
@@ -458,10 +559,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <p class="rv d2">Grupos pequeños, práctica real y retroalimentación personal. Escríbenos para conocer la próxima fecha.</p>
       </div>
       <div class="courses">
-        <article class="course rv"><span class="k">Nivel inicial</span><h3>Habla con seguridad</h3><p>Respiración, manejo de nervios y estructura de un mensaje, con práctica frente al grupo desde el primer día.</p><div class="meta"><span>Próxima fecha por anunciar</span><button type="button" data-interes="Curso: Habla con seguridad">Info →</button></div></article>
-        <article class="course rv d1"><span class="k">Locución</span><h3>Voz que se escucha</h3><p>Proyección, dicción, ritmo y cuidado de la voz para quien habla todos los días.</p><div class="meta"><span>Próxima fecha por anunciar</span><button type="button" data-interes="Curso: Voz que se escucha">Info →</button></div></article>
-        <article class="course rv d2"><span class="k">Maestría de ceremonias</span><h3>Del guion al escenario</h3><p>Guion, protocolo, manejo de imprevistos y conexión con el público, paso a paso.</p><div class="meta"><span>Próxima fecha por anunciar</span><button type="button" data-interes="Curso: Del guion al escenario">Info →</button></div></article>
-        <article class="course rv d3"><span class="k">Empresas</span><h3>Comunicación para equipos</h3><p>Programa a la medida: presentar resultados, liderar reuniones y atender al público.</p><div class="meta"><span>Se cotiza por grupo</span><button type="button" data-interes="Capacitación para mi equipo">Propuesta →</button></div></article>
+        <article class="course c1 rv">
+          <div class="course-art" aria-hidden="true"><span class="course-n">01</span><span class="course-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4.5 3.5V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M8 11h.01M12 11h.01M16 11h.01" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="acc-grain"></span></div>
+          <div class="course-body"><span class="k">Nivel inicial</span><h3>Habla con seguridad</h3><p>Respiración, manejo de nervios y estructura de un mensaje, con práctica frente al grupo desde el primer día.</p></div>
+          <div class="meta"><span>Próxima fecha por anunciar</span><button type="button" data-interes="Curso: Habla con seguridad">Quiero información <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </article>
+        <article class="course c2 rv d1">
+          <div class="course-art" aria-hidden="true"><span class="course-n">02</span><span class="course-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 12h1M6.5 8v8M10 5v14M13.5 9v6M17 6.5v11M20.5 10.5v3"/></svg></span><span class="acc-grain"></span></div>
+          <div class="course-body"><span class="k">Locución</span><h3>Voz que se escucha</h3><p>Proyección, dicción, ritmo y cuidado de la voz para quien habla todos los días.</p></div>
+          <div class="meta"><span>Próxima fecha por anunciar</span><button type="button" data-interes="Curso: Voz que se escucha">Quiero información <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </article>
+        <article class="course c3 rv d2">
+          <div class="course-art" aria-hidden="true"><span class="course-n">03</span><span class="course-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8.5 21h7"/></svg></span><span class="acc-grain"></span></div>
+          <div class="course-body"><span class="k">Maestría de ceremonias</span><h3>Del guion al escenario</h3><p>Guion, protocolo, manejo de imprevistos y conexión con el público, paso a paso.</p></div>
+          <div class="meta"><span>Próxima fecha por anunciar</span><button type="button" data-interes="Curso: Del guion al escenario">Quiero información <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </article>
+        <article class="course c4 rv d3">
+          <div class="course-art" aria-hidden="true"><span class="course-n">04</span><span class="course-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M4 9h16M6 9l1.5 12h9L18 9M9 5.5a3 3 0 0 1 6 0"/><path d="M12 9v4"/></svg></span><span class="acc-grain"></span></div>
+          <div class="course-body"><span class="k">Empresas</span><h3>Comunicación para equipos</h3><p>Programa a la medida para presentar resultados, liderar reuniones y atender al público.</p></div>
+          <div class="meta"><span>Se cotiza por grupo</span><button type="button" data-interes="Capacitación para mi equipo">Solicitar propuesta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </article>
       </div>
     </div>
   </section>
