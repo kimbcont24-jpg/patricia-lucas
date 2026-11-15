@@ -3,307 +3,440 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Patricia Lucas</title>
+<title>Patricia Lucas | Maestra de ceremonias, locutora y formadora en oratoria</title>
+<meta name="description" content="Patricia Lucas conduce congresos, actos institucionales y académicos, presta su voz a marcas y entrena a profesionales para hablar en público con seguridad.">
+<meta property="og:title" content="Patricia Lucas | La voz de tu evento">
+<meta property="og:description" content="Maestría de ceremonias, locución, oratoria y marca personal en República Dominicana.">
+<meta property="og:image" content="hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* Idea: escenario institucional dominicano. Blanco de tarima, azul real de bandera y de su vestido, un acento rosa de sus tacones. Retrato grande, videos verticales como prueba. */
+/* Idea: escenario. Azul noche de auditorio, azul real de bandera y un rosa de micrófono encendido. Tarjetas que se abren, menú que se desliza, secciones que se apilan. */
 :root{
-  --paper:#F7F7FB; --white:#FFFFFF; --ink:#14182B; --muted:#565B74; --line:#E1E2EE;
-  --royal:#2A3FB8; --royal-deep:#18257A; --rose:#D9467A;
-  --display:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --night:#0C1130; --night-2:#141A45; --paper:#F6F6FA; --white:#FFFFFF; --ink:#11152E; --muted:#5A5F7A; --line:#E2E3EE;
+  --royal:#3248D6; --rose:#E24C80; --soft:#C9CEF5;
+  --display:"Instrument Serif", Georgia, "Times New Roman", serif;
   --body:"Manrope", "Segoe UI", system-ui, sans-serif;
+  --ease:cubic-bezier(.22,.8,.2,1);
   color-scheme:light;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;text-wrap:balance}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.01em}
 p{margin:0}
 a{color:inherit}
+img,video{max-width:100%;display:block}
 :focus-visible{outline:3px solid var(--rose);outline-offset:3px}
-.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
-.eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--royal)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--ink);cursor:pointer;font-family:var(--body);font-size:16px;background:transparent;color:var(--ink)}
-.btn.solid{background:var(--royal);border-color:var(--royal);color:#fff}
-.btn.solid:hover{background:var(--royal-deep);border-color:var(--royal-deep)}
-.btn:hover{background:var(--ink);color:#fff}
-.btn.light{border-color:#fff;color:#fff}
-.btn.light:hover{background:#fff;color:var(--royal-deep)}
-/* Nav */
-header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
-.logo{font-family:var(--display);font-size:24px;text-decoration:none}
-.logo span{color:var(--rose)}
-.links{display:flex;gap:22px;align-items:center}
-.links a{text-decoration:none;font-weight:600;font-size:15px;color:var(--muted)}
-.links a:hover{color:var(--ink)}
-.links .btn{padding:9px 16px;font-size:14px;color:#fff}
-/* Hero */
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:center;padding:56px 0 48px}
-.hero h1{font-size:clamp(46px,6.4vw,84px)}
-.hero h1 em{font-style:italic;color:var(--royal)}
-.hero p.lead{font-size:20px;color:var(--muted);max-width:52ch;margin-top:22px}
-.hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.portrait{position:relative;border-radius:200px 200px 22px 22px;overflow:hidden;aspect-ratio:9/14;background:var(--royal-deep);box-shadow:0 30px 60px -30px rgba(24,37,122,.55)}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
-.portrait figcaption{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(255,255,255,.94);border-radius:14px;padding:10px 14px;font-size:13px;font-weight:600}
-.portrait figcaption b{display:block;color:var(--royal);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
-/* Escenarios */
-.stages{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white)}
-.stages .wrap{display:flex;gap:10px 34px;align-items:center;flex-wrap:wrap;padding-top:18px;padding-bottom:18px}
-.stages small{font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.stages span{font-family:var(--display);font-size:19px}
-/* Secciones */
-section.block{padding:84px 0}
-.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:38px}
-.head h2{font-size:clamp(34px,4.4vw,54px);margin-top:10px}
-.head p{color:var(--muted);max-width:48ch}
-.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
-.svc{padding:28px 26px 30px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
-.svc:not(:nth-child(3n)){border-right:1px solid var(--line)}
-.svc:not(:nth-child(3n+1)){padding-left:26px}
-.svc .n{font-family:var(--display);font-size:40px;color:var(--rose);line-height:1}
-.svc h3{font-size:26px}
-.svc p{color:var(--muted);font-size:16px}
-/* Cursos */
-.courses-bg{background:var(--royal-deep);color:#fff}
-.courses-bg .eyebrow{color:#FFB3CB}
-.courses-bg .head p{color:#C9CEF2}
-.courses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.course{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:14px}
-.course h3{font-size:30px}
-.course p{color:#D6DAF5}
-.tags{display:flex;gap:8px;flex-wrap:wrap}
-.tags span{font-size:13px;font-weight:700;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.1)}
-.course .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;border-top:1px solid rgba(255,255,255,.14)}
-.course .foot small{color:#C9CEF2;font-weight:600}
-/* Videos */
-.reel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.clip{display:flex;flex-direction:column;gap:8px;margin:0}
-.clip video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px;background:#0f1430;display:block}
-.clip figcaption{font-size:14px;font-weight:600;line-height:1.35}
-.clip figcaption small{display:block;color:var(--muted);font-weight:500}
-/* Método */
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:s}
-.step{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:10px}
-.step b{font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--rose);text-transform:uppercase}
-.step h3{font-size:26px}
-.step p{color:var(--muted);font-size:16px}
-/* Empresas */
-.corp{background:var(--rose);color:#fff;border-radius:28px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
-.corp h2{font-size:clamp(32px,4vw,48px)}
-.corp p{color:#FFE4EE;margin-top:14px}
-.corp ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-weight:600}
-.corp li{display:flex;gap:10px}
-.corp li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:#fff;margin-top:10px}
-/* Sobre */
-.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,64px);align-items:center}
-.about video{width:100%;aspect-ratio:9/16;max-height:620px;object-fit:cover;border-radius:22px;background:#0f1430}
-.about h2{font-size:clamp(34px,4.4vw,54px);margin:10px 0 18px}
-.about p{color:var(--muted);margin-bottom:14px;max-width:60ch}
-.quote{font-family:var(--display);font-style:italic;font-size:28px;line-height:1.25;color:var(--ink);border-left:4px solid var(--rose);padding-left:18px;margin:22px 0}
-/* Contacto */
-.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,56px);align-items:start}
-form{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:26px;display:grid;gap:14px}
-label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700}
-input,select,textarea{font:inherit;font-size:16px;font-weight:400;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);width:100%}
+.wrap{max-width:1220px;margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--royal)}
+.eyebrow::before{content:"";width:22px;height:2px;background:currentColor}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font:700 15px/1 var(--body);text-decoration:none;border:1.5px solid currentColor;cursor:pointer;background:transparent;color:inherit;transition:transform .3s var(--ease),background .3s,color .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn.rose{background:var(--rose);border-color:var(--rose);color:#fff}
+.btn.royal{background:var(--royal);border-color:var(--royal);color:#fff}
+.btn.white{background:#fff;border-color:#fff;color:var(--night)}
+
+/* ---------- Header + menú deslizante ---------- */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .4s,box-shadow .4s}
+header.scrolled{background:rgba(12,17,48,.86);backdrop-filter:blur(10px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px;color:#fff}
+.logo{font-family:var(--display);font-size:28px;text-decoration:none;letter-spacing:0}
+.logo i{font-style:normal;color:var(--rose)}
+.nav-r{display:flex;align-items:center;gap:12px}
+.nav-r .btn{padding:11px 18px;font-size:14px}
+.menu-btn{display:inline-flex;align-items:center;gap:12px;background:transparent;border:0;color:#fff;font:700 14px var(--body);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:10px 4px}
+.burger{width:26px;height:12px;position:relative}
+.burger::before,.burger::after{content:"";position:absolute;left:0;right:0;height:2px;background:currentColor;transition:transform .4s var(--ease),top .4s var(--ease)}
+.burger::before{top:0}.burger::after{top:10px}
+body.menu-open .burger::before{top:5px;transform:rotate(45deg)}
+body.menu-open .burger::after{top:5px;transform:rotate(-45deg)}
+.menu-shade{position:fixed;inset:0;background:rgba(8,10,30,.55);opacity:0;pointer-events:none;transition:opacity .5s;z-index:40}
+.menu{position:fixed;top:0;right:0;bottom:0;width:min(520px,100%);background:var(--night);color:#fff;z-index:45;transform:translateX(100%);transition:transform .7s var(--ease);display:flex;flex-direction:column;padding:110px clamp(28px,5vw,56px) 40px;overflow:auto}
+body.menu-open .menu{transform:none}
+body.menu-open .menu-shade{opacity:1;pointer-events:auto}
+.menu ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;counter-reset:m}
+.menu li{counter-increment:m;opacity:0;transform:translateX(40px);transition:opacity .5s, transform .6s var(--ease)}
+body.menu-open .menu li{opacity:1;transform:none}
+body.menu-open .menu li:nth-child(1){transition-delay:.15s}body.menu-open .menu li:nth-child(2){transition-delay:.21s}body.menu-open .menu li:nth-child(3){transition-delay:.27s}body.menu-open .menu li:nth-child(4){transition-delay:.33s}body.menu-open .menu li:nth-child(5){transition-delay:.39s}body.menu-open .menu li:nth-child(6){transition-delay:.45s}
+.menu a{display:flex;align-items:baseline;gap:16px;font-family:var(--display);font-size:clamp(38px,5vw,54px);text-decoration:none;line-height:1.15;transition:color .3s,padding .4s var(--ease)}
+.menu a::before{content:"0" counter(m);font:700 12px var(--body);letter-spacing:.12em;color:var(--soft)}
+.menu a:hover{color:var(--rose);padding-left:10px}
+.menu-foot{margin-top:auto;padding-top:36px;color:var(--soft);font-size:14px;display:flex;flex-direction:column;gap:6px}
+.menu-foot a{font:600 16px var(--body);color:#fff}
+.menu-foot a::before{content:none}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;background:var(--night);color:#fff;overflow:hidden;padding:130px 0 0}
+.hero::before{content:"";position:absolute;width:720px;height:720px;right:-160px;top:-200px;background:radial-gradient(circle,rgba(50,72,214,.55),transparent 65%);filter:blur(10px);animation:float 14s ease-in-out infinite}
+.hero::after{content:"";position:absolute;width:520px;height:520px;left:-200px;bottom:-160px;background:radial-gradient(circle,rgba(226,76,128,.35),transparent 65%);animation:float 18s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translate(-40px,40px) scale(1.08)}}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,70px);align-items:end}
+.hero .eyebrow{color:#FFB2CB}
+.hero h1{font-size:clamp(54px,7.6vw,112px);margin-top:20px}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero .lead{font-size:19px;color:var(--soft);max-width:50ch;margin-top:24px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0 54px}
+.portrait{position:relative;margin:0;border-radius:260px 260px 0 0;overflow:hidden;aspect-ratio:3/4.1;box-shadow:0 -20px 80px rgba(50,72,214,.35)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;transform:scale(1.05);transition:transform 1.6s var(--ease)}
+.loaded .portrait img{transform:scale(1)}
+.onair{position:absolute;left:18px;top:50%;display:flex;align-items:center;gap:8px;background:rgba(12,17,48,.75);backdrop-filter:blur(6px);padding:8px 14px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.onair i{width:8px;height:8px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 0 rgba(226,76,128,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(226,76,128,0)}100%{box-shadow:0 0 0 0 rgba(226,76,128,0)}}
+#wave{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;z-index:1;opacity:.55}
+.marquee{position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.12);overflow:hidden;white-space:nowrap;padding:22px 0;background:var(--night)}
+.marquee-track{display:inline-flex;gap:48px;animation:marquee 32s linear infinite;padding-left:48px}
+.marquee span{font-family:var(--display);font-size:30px;font-style:italic;color:#fff;display:inline-flex;align-items:center;gap:48px}
+.marquee span::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--rose)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- Escenarios ---------- */
+.stages{background:var(--white);border-bottom:1px solid var(--line)}
+.stages .wrap{display:grid;grid-template-columns:170px repeat(4,1fr);gap:24px;align-items:center;padding-top:26px;padding-bottom:26px}
+.stages small{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);max-width:14ch;line-height:1.4}
+.stages div{font-family:var(--display);font-size:22px;line-height:1.15;border-left:1px solid var(--line);padding-left:20px}
+.stages div b{display:block;font:700 11px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--royal);margin-bottom:4px}
+
+/* ---------- Secciones ---------- */
+section{position:relative}
+.block{padding:110px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;margin-bottom:48px}
+.head h2{font-size:clamp(42px,5.4vw,76px);margin-top:14px}
+.head h2 em{font-style:italic;color:var(--royal)}
+.head p{color:var(--muted);max-width:46ch}
+
+/* ---------- Tarjetas que se abren (acordeón horizontal) ---------- */
+.acc{display:flex;gap:12px;height:600px}
+.acc-item{position:relative;flex:1;min-width:0;border-radius:24px;overflow:hidden;cursor:pointer;background:var(--night);transition:flex .9s var(--ease);border:0;padding:0;text-align:left;color:#fff;font:inherit}
+.acc-item.active{flex:5.2;cursor:default}
+.acc-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease),filter .8s}
+.acc-item:not(.active) img{filter:grayscale(.6) brightness(.55);transform:scale(1.15)}
+.acc-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,17,48,0) 30%,rgba(12,17,48,.92))}
+.acc-label{position:absolute;z-index:2;left:50%;bottom:30px;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;font:800 13px var(--body);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;transition:opacity .4s}
+.acc-item.active .acc-label{opacity:0}
+.acc-num{position:absolute;z-index:2;top:22px;left:50%;transform:translateX(-50%);font:700 13px var(--body);color:var(--soft);transition:left .6s var(--ease),transform .6s var(--ease)}
+.acc-item.active .acc-num{left:34px;transform:none}
+.acc-body{position:absolute;z-index:2;left:34px;right:34px;bottom:34px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(24px);transition:opacity .5s, transform .7s var(--ease);pointer-events:none;max-width:520px}
+.acc-item.active .acc-body{opacity:1;transform:none;transition-delay:.35s;pointer-events:auto}
+.acc-body h3{font-size:clamp(36px,3.6vw,54px)}
+.acc-body p{color:#D9DCF7;font-size:16px}
+.acc-body ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.acc-body li{font-size:13px;font-weight:700;padding:6px 12px;border:1px solid rgba(255,255,255,.3);border-radius:999px}
+.acc-bar{position:absolute;z-index:3;left:34px;right:34px;top:58px;height:2px;background:rgba(255,255,255,.18);opacity:0}
+.acc-item.active .acc-bar{opacity:1}
+.acc-bar i{display:block;height:100%;width:0;background:var(--rose)}
+.acc-item.active.run .acc-bar i{animation:bar 7s linear forwards}
+.acc:hover .acc-item.active .acc-bar i{animation-play-state:paused}
+@keyframes bar{to{width:100%}}
+
+/* ---------- En escena (videos tipo Luisa) ---------- */
+.stage-bg{background:var(--night);color:#fff;overflow:hidden}
+.stage-bg .eyebrow{color:#FFB2CB}
+.stage-bg .head p{color:var(--soft)}
+.stage-bg .head h2 em{color:var(--rose)}
+.stage-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:stretch}
+.feature{position:relative;border-radius:26px;overflow:hidden;background:#000;min-height:560px}
+.feature video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.feature .tag{position:absolute;left:20px;top:20px;z-index:2;background:rgba(12,17,48,.75);backdrop-filter:blur(6px);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;pointer-events:none}
+.stage-side{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-content:start}
+.mini{margin:0;display:flex;flex-direction:column;gap:10px}
+.mini button{all:unset;cursor:pointer;position:relative;display:block;border-radius:18px;overflow:hidden;aspect-ratio:9/13}
+.mini img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.mini button:hover img{transform:scale(1.06)}
+.mini button::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.6))}
+.play{position:absolute;z-index:2;left:14px;bottom:14px;width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .4s var(--ease)}
+.mini button:hover .play{transform:scale(1.12)}
+.play svg{width:16px;height:16px;fill:var(--night);margin-left:3px}
+.mini figcaption{font-size:14px;font-weight:700;line-height:1.35}
+.mini figcaption small{display:block;color:var(--soft);font-weight:500}
+.mini.on button{outline:2px solid var(--rose);outline-offset:3px}
+.stage-quote{grid-column:1/-1;font-family:var(--display);font-style:italic;font-size:clamp(26px,2.6vw,36px);line-height:1.2;padding:22px 0 0;border-top:1px solid rgba(255,255,255,.15)}
+
+/* ---------- Secciones que se apilan ---------- */
+.stack{display:flex;flex-direction:column;gap:28px}
+.stack-card{position:sticky;top:110px;border-radius:30px;padding:clamp(30px,5vw,64px);display:grid;grid-template-columns:auto 1fr 1fr;gap:clamp(20px,4vw,60px);align-items:center;min-height:360px;box-shadow:0 -12px 40px rgba(12,17,48,.12);transform-origin:50% 0;transition:transform .2s linear}
+.stack-card:nth-child(1){background:var(--white);top:110px}
+.stack-card:nth-child(2){background:var(--royal);color:#fff;top:134px}
+.stack-card:nth-child(3){background:var(--rose);color:#fff;top:158px}
+.stack-card .big{font-family:var(--display);font-size:clamp(90px,11vw,170px);line-height:.8;color:var(--royal)}
+.stack-card:nth-child(n+2) .big{color:rgba(255,255,255,.4)}
+.stack-card h3{font-size:clamp(36px,4vw,58px)}
+.stack-card p{font-size:18px;color:var(--muted)}
+.stack-card:nth-child(n+2) p{color:rgba(255,255,255,.88)}
+
+/* ---------- Cursos ---------- */
+.courses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.course{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:transform .5s var(--ease),box-shadow .5s,border-color .3s}
+.course:hover{transform:translateY(-8px);box-shadow:0 30px 50px -30px rgba(50,72,214,.45);border-color:var(--soft)}
+.course .k{font:800 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
+.course h3{font-size:32px}
+.course p{color:var(--muted);font-size:15px}
+.course .meta{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;font-weight:700;color:var(--muted)}
+.course button{all:unset;cursor:pointer;color:var(--royal);font-weight:800;display:inline-flex;gap:6px;align-items:center}
+.course button:hover{color:var(--rose)}
+
+/* ---------- Sobre ---------- */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,6vw,90px);align-items:center}
+.about-img{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/5}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about h2{font-size:clamp(42px,5vw,70px);margin:14px 0 22px}
+.about p{color:var(--muted);margin-bottom:14px;max-width:58ch}
+.about blockquote{margin:26px 0;font-family:var(--display);font-style:italic;font-size:34px;line-height:1.15;border-left:3px solid var(--rose);padding-left:20px}
+
+/* ---------- Contacto ---------- */
+.contact-bg{background:var(--night);color:#fff;border-radius:40px 40px 0 0}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,80px);align-items:start}
+.contact h2{font-size:clamp(46px,6vw,88px);margin-top:14px}
+.contact h2 em{font-style:italic;color:var(--rose)}
+.contact .eyebrow{color:#FFB2CB}
+.contact p.lead{color:var(--soft);margin-top:18px;max-width:44ch}
+.channels{display:flex;flex-direction:column;gap:12px;margin-top:30px}
+.channels a{display:inline-flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;width:fit-content}
+.channels svg{width:22px;height:22px;color:var(--rose)}
+form{display:grid;gap:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:26px;padding:28px}
+label{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--soft)}
+input,select,textarea{font:400 16px var(--body);color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:13px 15px;width:100%}
+select option{color:var(--ink)}
+input::placeholder,textarea::placeholder{color:rgba(201,206,245,.6)}
 textarea{min-height:110px;resize:vertical}
-.hint{font-size:13px;color:var(--muted)}
-.contact-list{display:flex;flex-direction:column;gap:12px;margin-top:22px}
-.contact-list a{display:flex;gap:12px;align-items:center;font-weight:700;text-decoration:none}
-.contact-list svg{width:22px;height:22px;color:var(--royal)}
-footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
+.hint{font-size:13px;color:var(--soft)}
+footer{background:var(--night);color:var(--soft);font-size:14px;padding:30px 0 34px;border-top:1px solid rgba(255,255,255,.1)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-weight:600;font-size:15px;opacity:0;pointer-events:none;transition:opacity .2s;max-width:90vw;text-align:center}
-.toast.on{opacity:1}
-@media (max-width:900px){
-  .links a:not(.btn){display:none}
-  .hero,.about,.contact,.corp{grid-template-columns:1fr}
-  .portrait{max-width:420px}
-  .services{grid-template-columns:1fr}
-  .svc{padding:24px 0!important;border-right:0!important}
-  .courses,.steps{grid-template-columns:1fr}
-  .reel{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .about video{max-height:520px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#fff;color:var(--night);padding:13px 18px;border-radius:14px;font-weight:700;font-size:15px;opacity:0;pointer-events:none;transition:opacity .3s,transform .4s var(--ease);max-width:92vw;text-align:center;z-index:60;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+.toast.on{opacity:1;transform:translateX(-50%)}
+
+/* ---------- Aparición al hacer scroll ---------- */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform 1s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.d1{transition-delay:.1s}.js .rv.d2{transition-delay:.2s}.js .rv.d3{transition-delay:.3s}
+.split .w{display:inline-block;overflow:hidden;vertical-align:bottom}
+.split .w>span{display:inline-block;transform:translateY(105%);transition:transform 1s var(--ease)}
+.loaded .split .w>span{transform:none}
+
+@media (max-width:980px){
+  .hero-grid,.stage-grid,.about,.contact{grid-template-columns:1fr}
+  .portrait{max-width:440px;margin:0 auto}
+  .stages .wrap{grid-template-columns:1fr 1fr}
+  .stages small{grid-column:1/-1;max-width:none}
+  .acc{flex-direction:column;height:auto}
+  .acc-item{flex:none;height:86px;transition:height .8s var(--ease)}
+  .acc-item.active{flex:none;height:500px}
+  .acc-label{writing-mode:horizontal-tb;transform:none;left:70px;bottom:auto;top:33px}
+  .acc-num{left:28px;transform:none;top:33px}
+  .acc-item.active .acc-num{left:28px}
+  .acc-bar{top:auto;bottom:16px}
+  .feature{min-height:520px}
+  .stack-card{grid-template-columns:1fr;min-height:0;position:relative;top:auto!important}
+  .courses{grid-template-columns:1fr 1fr}
+  .nav-r .btn{display:none}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media (max-width:560px){ .courses{grid-template-columns:1fr} .stage-side{grid-template-columns:1fr 1fr} .hero h1{font-size:52px} }
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .split .w>span{transform:none}
+}
 </style>
 </head>
 <body>
-<header>
+<header id="top">
   <div class="wrap nav">
-    <a class="logo" href="#inicio">Patricia Lucas<span>.</span></a>
-    <nav class="links" aria-label="Principal">
-      <a href="#servicios">Servicios</a>
-      <a href="#cursos">Cursos</a>
-      <a href="#en-escena">En escena</a>
-      <a href="#sobre-mi">Sobre mí</a>
-      <a class="btn solid" href="#contacto">Hablemos</a>
-    </nav>
+    <a class="logo" href="#inicio">Patricia Lucas<i>.</i></a>
+    <div class="nav-r">
+      <a class="btn white" href="#contacto">Contrátala</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menú <span class="burger" aria-hidden="true"></span></button>
+    </div>
   </div>
 </header>
+<div class="menu-shade" id="shade"></div>
+<nav class="menu" id="menu" aria-label="Menú principal">
+  <ol>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#en-escena">En escena</a></li>
+    <li><a href="#por-que">Por qué ella</a></li>
+    <li><a href="#cursos">Cursos</a></li>
+    <li><a href="#sobre">Sobre Patricia</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ol>
+  <div class="menu-foot">
+    <span>Maestría de ceremonias · Locución · Oratoria</span>
+    <a href="https://www.instagram.com/patricialucas__" target="_blank" rel="noopener">@patricialucas__</a>
+  </div>
+</nav>
 
 <main id="inicio">
-  <div class="wrap hero">
-    <div>
-      <p class="eyebrow">Maestra de ceremonias · Oratoria · Locución</p>
-      <h1 style="margin-top:16px">La voz que <em>sostiene</em> el escenario.</h1>
-      <p class="lead">Soy Patricia Lucas. Conduzco eventos institucionales y enseño a profesionales y equipos a hablar en público con seguridad, claridad e intención.</p>
-      <div class="row">
-        <a class="btn solid" href="#cursos">Ver cursos y capacitaciones</a>
-        <a class="btn" href="#en-escena">Verme en escena</a>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Maestra de ceremonias · Locutora · Oratoria</span>
+        <h1 class="split" data-split>La voz que hace <em>memorable</em> tu evento.</h1>
+        <p class="lead rv d2">Patricia Lucas conduce congresos, actos institucionales y académicos, presta su voz a marcas y entrena a profesionales para hablar en público con seguridad.</p>
+        <div class="ctas rv d3">
+          <a class="btn rose" href="#contacto">Contrátala para tu evento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn" href="#servicios">Ver servicios</a>
+        </div>
       </div>
+      <figure class="portrait rv d1">
+        <img src="hero.jpg" alt="Patricia Lucas conduciendo en la XXVII Feria Internacional del Libro de Santo Domingo">
+        <span class="onair"><i></i>Al aire</span>
+      </figure>
     </div>
-    <figure class="portrait" style="margin:0">
-      <img src="hero.jpg" alt="Patricia Lucas hablando desde el podio de la XXVII Feria Internacional del Libro de Santo Domingo">
-      <figcaption><b>En escena</b>XXVII Feria Internacional del Libro, Santo Domingo</figcaption>
-    </figure>
+    <canvas id="wave" aria-hidden="true"></canvas>
+  </section>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Maestría de ceremonias</span><span>Locución comercial</span><span>Oratoria</span><span>Marca personal</span><span>Conferencias</span><span>Preparación de voceros</span>
+      <span>Maestría de ceremonias</span><span>Locución comercial</span><span>Oratoria</span><span>Marca personal</span><span>Conferencias</span><span>Preparación de voceros</span>
+    </div>
   </div>
 
+  <!-- ESCENARIOS -->
   <div class="stages">
     <div class="wrap">
       <small>Ha tomado el micrófono en</small>
-      <span>Congreso Regional PREIE 2026</span>
-      <span>XXVII Feria Internacional del Libro</span>
-      <span>Actividades del IDEICE</span>
-      <span>Actos académicos</span>
+      <div class="rv"><b>Congreso</b>PREIE 2026</div>
+      <div class="rv d1"><b>Feria</b>XXVII Feria Internacional del Libro</div>
+      <div class="rv d2"><b>Educación</b>Actividades del IDEICE</div>
+      <div class="rv d3"><b>Academia</b>Actos de clausura</div>
     </div>
   </div>
 
+  <!-- SERVICIOS: tarjetas que se abren -->
   <section class="block" id="servicios">
     <div class="wrap">
       <div class="head">
-        <div><p class="eyebrow">Qué hago</p><h2>Seis formas de trabajar juntos</h2></div>
-        <p>Desde la conducción de tu evento hasta un programa para que tu equipo presente mejor. Presencial, virtual o híbrido.</p>
+        <div><span class="eyebrow rv">Servicios</span><h2 class="rv d1">Una voz para cada <em>escenario</em></h2></div>
+        <p class="rv d2">Pasa el cursor o toca cada tarjeta. Desde la conducción de tu congreso hasta la voz de tu marca.</p>
       </div>
-      <div class="services">
-        <div class="svc"><span class="n">01</span><h3>Maestría de ceremonias</h3><p>Conducción de congresos, ferias, lanzamientos y actos institucionales, con guion, ritmo y protocolo.</p></div>
-        <div class="svc"><span class="n">02</span><h3>Cursos de oratoria</h3><p>Programas grupales para perder el miedo escénico y estructurar mensajes que se recuerdan.</p></div>
-        <div class="svc"><span class="n">03</span><h3>Capacitación para equipos</h3><p>Talleres a la medida para empresas e instituciones: presentaciones, reuniones y atención al público.</p></div>
-        <div class="svc"><span class="n">04</span><h3>Locución</h3><p>Tu marca con una voz clara y cálida: mensajes institucionales, videos, cursos y anuncios.</p></div>
-        <div class="svc"><span class="n">05</span><h3>Preparación de voceros</h3><p>Acompañamiento para quien representa a su organización frente a medios, juntas o escenarios.</p></div>
-        <div class="svc"><span class="n">06</span><h3>Conferencias</h3><p>Charlas sobre el poder de la voz y la comunicación con intención para tu evento o congreso.</p></div>
+      <div class="acc rv" id="acc">
+        <div class="acc-item active" role="button" tabindex="0" aria-expanded="true">
+          <img src="poster4.jpg" alt="">
+          <span class="acc-num">01</span><span class="acc-label">Maestría de ceremonias</span><span class="acc-bar"><i></i></span>
+          <span class="acc-body"><h3>Maestría de ceremonias</h3><p>Conduce congresos, ferias, lanzamientos y actos institucionales con guion, ritmo y protocolo. Tu programa fluye y tus invitados se sienten atendidos.</p><ul><li>Congresos</li><li>Actos oficiales</li><li>Lanzamientos</li><li>Galas</li></ul></span>
+        </div>
+        <div class="acc-item" role="button" tabindex="0" aria-expanded="false">
+          <img src="poster1.jpg" alt="">
+          <span class="acc-num">02</span><span class="acc-label">Locución</span><span class="acc-bar"><i></i></span>
+          <span class="acc-body"><h3>Locución</h3><p>La voz de tu marca: anuncios, videos institucionales, mensajes telefónicos y narración de cursos, con una voz cálida y clara.</p><ul><li>Comerciales</li><li>Institucional</li><li>Mensajes telefónicos</li><li>E-learning</li></ul></span>
+        </div>
+        <div class="acc-item" role="button" tabindex="0" aria-expanded="false">
+          <img src="poster6.jpg" alt="">
+          <span class="acc-num">03</span><span class="acc-label">Oratoria y cursos</span><span class="acc-bar"><i></i></span>
+          <span class="acc-body"><h3>Oratoria y cursos</h3><p>Programas para perder el miedo escénico, proyectar la voz y estructurar mensajes que se recuerdan. Para personas y para equipos.</p><ul><li>Grupales</li><li>In company</li><li>Presencial y virtual</li></ul></span>
+        </div>
+        <div class="acc-item" role="button" tabindex="0" aria-expanded="false">
+          <img src="poster7.jpg" alt="">
+          <span class="acc-num">04</span><span class="acc-label">Marca personal</span><span class="acc-bar"><i></i></span>
+          <span class="acc-body"><h3>Marca personal y voceros</h3><p>Acompaña a líderes y voceros para que su voz y su presencia transmitan la misma autoridad que su trayectoria, frente a medios, juntas o escenarios.</p><ul><li>Voceros</li><li>Ejecutivos</li><li>Entrevistas</li></ul></span>
+        </div>
+        <div class="acc-item" role="button" tabindex="0" aria-expanded="false">
+          <img src="poster8.jpg" alt="">
+          <span class="acc-num">05</span><span class="acc-label">Conferencias</span><span class="acc-bar"><i></i></span>
+          <span class="acc-body"><h3>Conferencias</h3><p>Charlas sobre el poder de la voz y la comunicación con intención, adaptadas a congresos, empresas e instituciones educativas.</p><ul><li>Empresas</li><li>Universidades</li><li>Congresos</li></ul></span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="block courses-bg" id="cursos">
+  <!-- EN ESCENA -->
+  <section class="block stage-bg" id="en-escena">
     <div class="wrap">
       <div class="head">
-        <div><p class="eyebrow">Cursos y capacitaciones</p><h2>Aprende a usar tu voz</h2></div>
-        <p>Grupos pequeños, mucha práctica y retroalimentación personal. Escríbenos para conocer la próxima fecha.</p>
+        <div><span class="eyebrow rv">En escena</span><h2 class="rv d1">Verla conducir <em>lo dice todo</em></h2></div>
+        <p class="rv d2">Momentos reales en congresos, ferias y actos académicos de República Dominicana. Elige un video.</p>
+      </div>
+      <div class="stage-grid">
+        <div class="feature rv">
+          <span class="tag" id="featTag">XXVII Feria Internacional del Libro</span>
+          <video id="feat" src="video4.mp4" poster="poster4.jpg" controls playsinline preload="metadata"></video>
+        </div>
+        <div class="stage-side">
+          <figure class="mini on rv d1"><button type="button" data-v="video4.mp4" data-p="poster4.jpg" data-t="XXVII Feria Internacional del Libro"><img src="poster4.jpg" alt="Patricia en la Feria del Libro"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Feria Internacional del Libro<small>Santo Domingo</small></figcaption></figure>
+          <figure class="mini rv d2"><button type="button" data-v="video1.mp4" data-p="poster1.jpg" data-t="Congreso Regional PREIE 2026"><img src="poster1.jpg" alt="Patricia en el Congreso PREIE 2026"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Congreso Regional PREIE 2026<small>Investigación educativa</small></figcaption></figure>
+          <figure class="mini rv d2"><button type="button" data-v="video6.mp4" data-p="poster6.jpg" data-t="Actividad del IDEICE"><img src="poster6.jpg" alt="Patricia en una actividad del IDEICE"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Actividad del IDEICE<small>Ministerio de Educación</small></figcaption></figure>
+          <figure class="mini rv d3"><button type="button" data-v="video8.mp4" data-p="poster8.jpg" data-t="Acto de clausura académico"><img src="poster8.jpg" alt="Patricia en un acto de clausura"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Acto de clausura<small>Programa académico</small></figcaption></figure>
+          <p class="stage-quote rv">“Cada evento tiene un ritmo. Mi trabajo es que nadie lo note.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ ELLA: secciones que se apilan -->
+  <section class="block" id="por-que">
+    <div class="wrap">
+      <div class="head"><div><span class="eyebrow rv">Por qué Patricia</span><h2 class="rv d1">Tres razones para <em>confiarle</em> tu micrófono</h2></div></div>
+      <div class="stack">
+        <article class="stack-card"><span class="big">01</span><h3>Una voz que se escucha y se queda</h3><p>Dicción clara, tono cálido y control del ritmo. Tu público entiende cada palabra, desde la primera fila hasta la última.</p></article>
+        <article class="stack-card"><span class="big">02</span><h3>Presencia que ordena el escenario</h3><p>Maneja protocolo, autoridades e imprevistos con calma. El programa avanza y tu evento se ve profesional.</p></article>
+        <article class="stack-card"><span class="big">03</span><h3>Enseña lo que hace</h3><p>No solo habla bien: sabe explicar cómo hacerlo. Por eso sus cursos y capacitaciones dejan a las personas practicando, no solo inspiradas.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURSOS -->
+  <section class="block" id="cursos" style="padding-top:20px">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow rv">Cursos y capacitaciones</span><h2 class="rv d1">Aprende a usar <em>tu voz</em></h2></div>
+        <p class="rv d2">Grupos pequeños, práctica real y retroalimentación personal. Escríbenos para conocer la próxima fecha.</p>
       </div>
       <div class="courses">
-        <article class="course">
-          <h3>Habla con seguridad</h3>
-          <p>Para quien se paraliza al hablar en público. Respiración, manejo de nervios, estructura de un mensaje y práctica frente al grupo.</p>
-          <div class="tags"><span>Nivel inicial</span><span>Presencial o virtual</span></div>
-          <div class="foot"><small>Próxima fecha: por anunciar</small><button class="btn light" data-interes="Curso: Habla con seguridad">Quiero información</button></div>
-        </article>
-        <article class="course">
-          <h3>Voz que se escucha</h3>
-          <p>Técnica vocal y locución: proyección, dicción, ritmo y cuidado de la voz para quien habla todos los días.</p>
-          <div class="tags"><span>Locución</span><span>Presencial</span></div>
-          <div class="foot"><small>Próxima fecha: por anunciar</small><button class="btn light" data-interes="Curso: Voz que se escucha">Quiero información</button></div>
-        </article>
-        <article class="course">
-          <h3>Del guion al escenario</h3>
-          <p>Maestría de ceremonias paso a paso: guion, protocolo, manejo de imprevistos y conexión con el público.</p>
-          <div class="tags"><span>Maestría de ceremonias</span><span>Presencial</span></div>
-          <div class="foot"><small>Próxima fecha: por anunciar</small><button class="btn light" data-interes="Curso: Del guion al escenario">Quiero información</button></div>
-        </article>
-        <article class="course">
-          <h3>Comunicación para equipos</h3>
-          <p>Programa para empresas e instituciones, diseñado según los retos de cada equipo: presentar resultados, liderar reuniones y atender al público.</p>
-          <div class="tags"><span>Empresas</span><span>A la medida</span></div>
-          <div class="foot"><small>Se cotiza según el grupo</small><button class="btn light" data-interes="Capacitación para mi equipo">Solicitar propuesta</button></div>
-        </article>
+        <article class="course rv"><span class="k">Nivel inicial</span><h3>Habla con seguridad</h3><p>Respiración, manejo de nervios y estructura de un mensaje, con práctica frente al grupo desde el primer día.</p><div class="meta"><span>Próxima fecha por anunciar</span><button type="button" data-interes="Curso: Habla con seguridad">Info →</button></div></article>
+        <article class="course rv d1"><span class="k">Locución</span><h3>Voz que se escucha</h3><p>Proyección, dicción, ritmo y cuidado de la voz para quien habla todos los días.</p><div class="meta"><span>Próxima fecha por anunciar</span><button type="button" data-interes="Curso: Voz que se escucha">Info →</button></div></article>
+        <article class="course rv d2"><span class="k">Maestría de ceremonias</span><h3>Del guion al escenario</h3><p>Guion, protocolo, manejo de imprevistos y conexión con el público, paso a paso.</p><div class="meta"><span>Próxima fecha por anunciar</span><button type="button" data-interes="Curso: Del guion al escenario">Info →</button></div></article>
+        <article class="course rv d3"><span class="k">Empresas</span><h3>Comunicación para equipos</h3><p>Programa a la medida: presentar resultados, liderar reuniones y atender al público.</p><div class="meta"><span>Se cotiza por grupo</span><button type="button" data-interes="Capacitación para mi equipo">Propuesta →</button></div></article>
       </div>
     </div>
   </section>
 
-  <section class="block" id="en-escena">
-    <div class="wrap">
-      <div class="head">
-        <div><p class="eyebrow">En escena</p><h2>Verla es la mejor presentación</h2></div>
-        <p>Momentos reales en congresos, ferias y actos académicos. Toca cualquier video para verlo con sonido.</p>
-      </div>
-      <div class="reel" id="reel"></div>
-    </div>
-  </section>
-
-  <section class="block" style="padding-top:0">
-    <div class="wrap">
-      <div class="head"><div><p class="eyebrow">Cómo trabajamos</p><h2>Practicar es lo que transforma</h2></div></div>
-      <div class="steps">
-        <div class="step"><b>Paso 1</b><h3>Escuchar tu punto de partida</h3><p>Antes de empezar, identificamos cómo hablas hoy y qué situación quieres dominar.</p></div>
-        <div class="step"><b>Paso 2</b><h3>Practicar en situaciones reales</h3><p>Cada sesión incluye ejercicios frente a otros y simulaciones del escenario que te toca enfrentar.</p></div>
-        <div class="step"><b>Paso 3</b><h3>Verte y ajustar</h3><p>Retroalimentación concreta, con grabaciones, para que notes tu avance de una semana a otra.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" style="padding-top:0">
-    <div class="wrap">
-      <div class="corp">
-        <div>
-          <p class="eyebrow" style="color:#fff">Para empresas e instituciones</p>
-          <h2 style="margin-top:10px">Capacitaciones a la medida de tu equipo</h2>
-          <p>Diseñamos el programa según los retos de tu organización y lo medimos de principio a fin.</p>
-          <div style="margin-top:24px"><button class="btn light" data-interes="Capacitación para mi equipo">Solicitar propuesta</button></div>
-        </div>
-        <ul>
-          <li>Presentaciones efectivas para gerentes y líderes</li>
-          <li>Preparación de voceros institucionales</li>
-          <li>Comunicación con clientes y atención al público</li>
-          <li>Maestría de ceremonias para eventos internos</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="sobre-mi" style="padding-top:0">
+  <!-- SOBRE -->
+  <section class="block" id="sobre" style="padding-top:40px">
     <div class="wrap about">
-      <video src="video5.mp4" poster="poster5.jpg" controls playsinline preload="none" aria-label="Patricia Lucas en la XXVII Feria Internacional del Libro de Santo Domingo"></video>
+      <div class="about-img rv"><img src="poster7.jpg" alt="Patricia Lucas en un escenario"></div>
       <div>
-        <p class="eyebrow">Sobre mí</p>
-        <h2>Hola, soy Patricia</h2>
-        <p>Soy comunicadora y maestra de ceremonias. He tomado el micrófono en congresos educativos, ferias del libro y actos académicos de República Dominicana, donde cada palabra tiene que llegar clara a cientos de personas.</p>
-        <p>Hoy comparto lo que el escenario me ha enseñado con quienes quieren hablar con seguridad: profesionales, docentes, líderes y equipos completos.</p>
-        <p class="quote">Hablar bien no es un don. Es una práctica.</p>
-        <a class="btn solid" href="#contacto">Trabajemos juntos</a>
+        <span class="eyebrow rv">Sobre Patricia</span>
+        <h2 class="rv d1">Comunicadora de escenario</h2>
+        <p class="rv d2">Patricia Lucas es comunicadora, maestra de ceremonias y locutora. Ha tomado el micrófono en congresos educativos, ferias del libro y actos académicos de República Dominicana, donde cada palabra tiene que llegar clara a cientos de personas.</p>
+        <p class="rv d2">Hoy comparte lo que el escenario le ha enseñado con profesionales, docentes, líderes y equipos que quieren hablar con seguridad.</p>
+        <blockquote class="rv d3">Hablar bien no es un don. Es una práctica.</blockquote>
+        <a class="btn royal rv d3" href="#contacto">Trabajemos juntos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </section>
 
-  <section class="block" id="contacto" style="padding-top:0">
+  <!-- CONTACTO -->
+  <section class="block contact-bg" id="contacto">
     <div class="wrap contact">
       <div>
-        <p class="eyebrow">Contacto</p>
-        <h2 style="font-size:clamp(34px,4.4vw,54px);margin-top:10px">Cuéntame qué necesitas</h2>
-        <p style="color:var(--muted);margin-top:14px">Un curso para ti, la conducción de tu evento o un programa para tu equipo. Te respondo con disponibilidad y propuesta.</p>
-        <div class="contact-list">
+        <span class="eyebrow rv">Contacto</span>
+        <h2 class="rv d1">¿Tienes un evento? <em>Hablemos.</em></h2>
+        <p class="lead rv d2">Cuéntanos la fecha, el tipo de evento o lo que tu equipo necesita. Te respondemos con disponibilidad y propuesta.</p>
+        <div class="channels rv d3">
           <a href="https://www.instagram.com/patricialucas__" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@patricialucas__</a>
-          <span id="waLine" class="contact-list" style="margin:0" hidden></span>
+          <span id="waLine" hidden></span>
         </div>
       </div>
-      <form id="form" novalidate>
-        <label for="fNombre">Tu nombre<input id="fNombre" type="text" autocomplete="name" required></label>
+      <form id="form" class="rv d2" novalidate>
+        <label for="fNombre">Nombre<input id="fNombre" type="text" autocomplete="name" placeholder="Tu nombre" required></label>
         <label for="fInteres">Me interesa
           <select id="fInteres">
+            <option>Maestría de ceremonias para un evento</option>
+            <option>Locución</option>
+            <option>Conferencia</option>
             <option>Curso: Habla con seguridad</option>
             <option>Curso: Voz que se escucha</option>
             <option>Curso: Del guion al escenario</option>
             <option>Capacitación para mi equipo</option>
-            <option>Maestría de ceremonias para un evento</option>
-            <option>Locución</option>
-            <option>Conferencia</option>
+            <option>Preparación de voceros</option>
           </select>
         </label>
-        <label for="fMsg">Mensaje<textarea id="fMsg" placeholder="Fecha del evento, tamaño del grupo, lo que quieras contarme"></textarea></label>
-        <button class="btn solid" type="submit" id="fBtn">Enviar mensaje</button>
+        <label for="fMsg">Mensaje<textarea id="fMsg" placeholder="Fecha, lugar, tipo de evento o tamaño del grupo"></textarea></label>
+        <button class="btn rose" type="submit" style="justify-content:center">Enviar mensaje <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         <p class="hint" id="fHint"></p>
       </form>
     </div>
@@ -311,85 +444,176 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </main>
 
 <footer>
-  <div class="wrap"><span>© 2026 Patricia Lucas</span><span>Oratoria, locución y maestría de ceremonias</span></div>
+  <div class="wrap"><span>© 2026 Patricia Lucas</span><span>Maestría de ceremonias · Locución · Oratoria · Marca personal</span></div>
 </footer>
 <div class="toast" id="toast" role="status"></div>
 
 <script>
 (function(){
   'use strict';
-  // Configuración: escribe aquí el número de WhatsApp con código de país, solo dígitos (ej. 18095551234).
+  // Número de WhatsApp con código de país, solo dígitos (ej. 18095551234). Vacío = se usa Instagram.
   var WHATSAPP = '';
   var INSTAGRAM = 'https://www.instagram.com/patricialucas__';
-  // Supabase: clave pública (publishable), solo permite insertar mensajes de contacto.
+  // Supabase: clave pública (publishable); la tabla solo permite insertar mensajes.
   var SUPABASE_URL = 'https://tksyqqqemlawcqxfkcmb.supabase.co';
   var SUPABASE_KEY = 'sb_publishable_R1dtjFjonl1_X7DAFcp9Lg_lfU8eadb';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  root.classList.add('js');
 
-  var CLIPS = [
-    ['video1.mp4','poster1.jpg','Congreso Regional PREIE 2026','Investigación e innovación educativa'],
-    ['video2.mp4','poster2.jpg','Congreso Regional PREIE 2026','Desde el podio'],
-    ['video4.mp4','poster4.jpg','XXVII Feria Internacional del Libro','Santo Domingo'],
-    ['video3.mp4','poster3.jpg','XXVII Feria Internacional del Libro','Vista desde el público'],
-    ['video6.mp4','poster6.jpg','Actividad del IDEICE','Ministerio de Educación'],
-    ['video7.mp4','poster7.jpg','Evento institucional','Antes de abrir el programa'],
-    ['video8.mp4','poster8.jpg','Acto de clausura','Programa académico'],
-    ['video5.mp4','poster5.jpg','XXVII Feria Internacional del Libro','Panel de investigación educativa']
-  ];
-  var reel = document.getElementById('reel');
-  reel.innerHTML = CLIPS.map(function(c,i){
-    return '<figure class="clip"><video src="'+c[0]+'" poster="'+c[1]+'" controls playsinline preload="none" aria-label="'+c[2]+'"></video><figcaption>'+c[2]+'<small>'+c[3]+'</small></figcaption></figure>';
-  }).join('');
-  // Solo un video sonando a la vez
-  document.addEventListener('play', function(e){
-    document.querySelectorAll('video').forEach(function(v){ if(v!==e.target) v.pause(); });
-  }, true);
+  /* Titular palabra por palabra */
+  document.querySelectorAll('[data-split]').forEach(function(el){
+    var i = 0;
+    (function walk(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(n){
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function(part){
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            var w = document.createElement('span'); w.className = 'w';
+            var s = document.createElement('span'); s.textContent = part; s.style.transitionDelay = (0.08 * i++) + 's';
+            w.appendChild(s); frag.appendChild(w);
+          });
+          n.parentNode.replaceChild(frag, n);
+        } else if (n.nodeType === 1) walk(n);
+      });
+    })(el);
+  });
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add('loaded'); }); });
 
-  var toastT;
-  function toast(m){ var t=document.getElementById('toast'); t.textContent=m; t.classList.add('on'); clearTimeout(toastT); toastT=setTimeout(function(){t.classList.remove('on');},3800); }
+  /* Aparición al hacer scroll */
+  var rvs = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    rvs.forEach(function(el){ io.observe(el); });
+  } else { rvs.forEach(function(el){ el.classList.add('in'); }); }
 
-  var hint = document.getElementById('fHint');
-  if (WHATSAPP) {
-    hint.textContent = 'Se abrirá WhatsApp con tu mensaje listo para enviar.';
-    var wl = document.getElementById('waLine');
-    wl.hidden = false;
-    wl.innerHTML = '<a href="https://wa.me/'+WHATSAPP+'" target="_blank" rel="noopener">WhatsApp: +'+WHATSAPP+'</a>';
-  } else {
-    hint.textContent = 'Copiaremos tu mensaje para que lo pegues en un mensaje directo de Instagram.';
+  /* Header al hacer scroll */
+  var header = document.getElementById('top');
+  function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 40); stackScale(); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* Menú deslizante */
+  var btn = document.getElementById('menuBtn');
+  function setMenu(open){ document.body.classList.toggle('menu-open', open); btn.setAttribute('aria-expanded', open); }
+  btn.addEventListener('click', function(){ setMenu(!document.body.classList.contains('menu-open')); });
+  document.getElementById('shade').addEventListener('click', function(){ setMenu(false); });
+  document.querySelectorAll('.menu a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
+
+  /* Tarjetas que se abren, con avance automático */
+  var acc = document.getElementById('acc');
+  var items = Array.prototype.slice.call(acc.querySelectorAll('.acc-item'));
+  var cur = 0, timer = null, hovering = false;
+  function activate(i, auto){
+    items.forEach(function(it, k){
+      var on = k === i;
+      it.classList.toggle('active', on);
+      it.classList.remove('run');
+      it.setAttribute('aria-expanded', on);
+    });
+    cur = i;
+    if (!reduce) { void items[i].offsetWidth; items[i].classList.add('run'); }
+    schedule();
   }
+  function schedule(){ clearTimeout(timer); if (reduce) return; timer = setTimeout(function(){ if (!hovering) activate((cur + 1) % items.length, true); else schedule(); }, 7000); }
+  items.forEach(function(it, k){
+    it.addEventListener('click', function(){ activate(k); });
+    it.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(k); } });
+    it.addEventListener('mouseenter', function(){ if (window.matchMedia('(hover:hover)').matches && k !== cur) activate(k); });
+  });
+  acc.addEventListener('mouseenter', function(){ hovering = true; });
+  acc.addEventListener('mouseleave', function(){ hovering = false; });
+  activate(0);
 
-  document.querySelectorAll('[data-interes]').forEach(function(b){
+  /* Videos: el principal cambia al elegir otro */
+  var feat = document.getElementById('feat'), tag = document.getElementById('featTag');
+  document.querySelectorAll('.mini button').forEach(function(b){
     b.addEventListener('click', function(){
-      document.getElementById('fInteres').value = b.getAttribute('data-interes');
-      document.getElementById('contacto').scrollIntoView();
-      document.getElementById('fNombre').focus({preventScroll:true});
+      document.querySelectorAll('.mini').forEach(function(m){ m.classList.remove('on'); });
+      b.parentNode.classList.add('on');
+      feat.poster = b.dataset.p; feat.src = b.dataset.v; tag.textContent = b.dataset.t;
+      var p = feat.play(); if (p && p.catch) p.catch(function(){});
+      if (window.innerWidth < 980) feat.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
     });
   });
 
+  /* Secciones apiladas: la de atrás se encoge un poco */
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.stack-card'));
+  function stackScale(){
+    if (reduce || window.innerWidth < 980) return;
+    cards.forEach(function(c, i){
+      var next = cards[i + 1]; if (!next) { c.style.transform = ''; return; }
+      var gap = next.getBoundingClientRect().top - c.getBoundingClientRect().top;
+      var t = Math.max(0, Math.min(1, 1 - gap / c.offsetHeight));
+      c.style.transform = 'scale(' + (1 - t * 0.05) + ')';
+    });
+  }
+
+  /* Onda de voz en la portada */
+  var cv = document.getElementById('wave'), ctx = cv.getContext && cv.getContext('2d');
+  if (ctx) {
+    var W, H, dpr = Math.min(window.devicePixelRatio || 1, 2), t0 = 0;
+    function size(){ W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+    function draw(t){
+      ctx.clearRect(0,0,W,H);
+      var bars = Math.floor(W / 7), mid = H / 2;
+      for (var i = 0; i < bars; i++) {
+        var x = i * 7;
+        var env = Math.sin(i / bars * Math.PI);
+        var a = (Math.sin(i * .21 + t * .0021) * .5 + Math.sin(i * .07 - t * .0013) * .35 + Math.sin(i * .53 + t * .004) * .15);
+        var h = Math.max(2, Math.abs(a) * env * H * .9);
+        ctx.fillStyle = i % 9 === 0 ? 'rgba(226,76,128,.9)' : 'rgba(201,206,245,.55)';
+        ctx.fillRect(x, mid - h / 2, 3, h);
+      }
+    }
+    function loop(t){ draw(t); if (!reduce) requestAnimationFrame(loop); }
+    size(); window.addEventListener('resize', size); requestAnimationFrame(loop);
+  }
+
+  /* Contacto */
+  var toastT;
+  function toast(m){ var t = document.getElementById('toast'); t.textContent = m; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(function(){ t.classList.remove('on'); }, 4000); }
+  var hint = document.getElementById('fHint');
+  if (WHATSAPP) {
+    hint.textContent = 'Se abrirá WhatsApp con tu mensaje listo para enviar.';
+    var wl = document.getElementById('waLine'); wl.hidden = false;
+    wl.innerHTML = '<a href="https://wa.me/' + WHATSAPP + '" target="_blank" rel="noopener">WhatsApp: +' + WHATSAPP + '</a>';
+  } else {
+    hint.textContent = 'Tu mensaje queda registrado y también lo copiamos para que lo envíes por Instagram.';
+  }
+  document.querySelectorAll('[data-interes]').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.getElementById('fInteres').value = b.getAttribute('data-interes');
+      document.getElementById('contacto').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+      setTimeout(function(){ document.getElementById('fNombre').focus({preventScroll:true}); }, 600);
+    });
+  });
   document.getElementById('form').addEventListener('submit', function(e){
     e.preventDefault();
     var n = document.getElementById('fNombre').value.trim();
     if (!n) { toast('Escribe tu nombre para continuar'); document.getElementById('fNombre').focus(); return; }
-    var msg = 'Hola, Patricia. Soy ' + n + '. Me interesa: ' + document.getElementById('fInteres').value + '.';
+    var interes = document.getElementById('fInteres').value;
     var extra = document.getElementById('fMsg').value.trim();
-    if (extra) msg += ' ' + extra;
-    // Guarda el mensaje en Supabase (tabla pl_contactos)
+    var msg = 'Hola, Patricia. Soy ' + n + '. Me interesa: ' + interes + '.' + (extra ? ' ' + extra : '');
     try {
       fetch(SUPABASE_URL + '/rest/v1/pl_contactos', {
-        method: 'POST',
-        headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-        body: JSON.stringify({ nombre: n.slice(0,120), interes: document.getElementById('fInteres').value, mensaje: extra.slice(0,2000) || null })
-      }).then(function(r){ if (r.ok) { document.getElementById('form').reset(); } }).catch(function(){});
+        method:'POST',
+        headers:{ 'apikey':SUPABASE_KEY, 'Content-Type':'application/json', 'Prefer':'return=minimal' },
+        body: JSON.stringify({ nombre:n.slice(0,120), interes:interes.slice(0,120), mensaje: extra.slice(0,2000) || null })
+      }).then(function(r){ if (r.ok) { document.getElementById('form').reset(); if (WHATSAPP) toast('¡Gracias! Recibimos tu mensaje.'); } }).catch(function(){});
     } catch (err) {}
-    var url = WHATSAPP ? 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg) : INSTAGRAM;
     var link = document.createElement('a');
-    link.href = url; link.target = '_blank'; link.rel = 'noopener';
+    link.href = WHATSAPP ? 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg) : INSTAGRAM;
+    link.target = '_blank'; link.rel = 'noopener';
     if (!WHATSAPP) {
-      try {
-        navigator.clipboard.writeText(msg).then(function(){ toast('Mensaje copiado. Pégalo en un mensaje directo de Instagram.'); }, function(){ toast('Abre Instagram y escríbele: ' + msg); });
-      } catch (err) { toast('Abre Instagram y escríbele: ' + msg); }
+      try { navigator.clipboard.writeText(msg).then(function(){ toast('¡Gracias! Mensaje recibido y copiado para Instagram.'); }, function(){ toast('¡Gracias! Recibimos tu mensaje.'); }); }
+      catch (err) { toast('¡Gracias! Recibimos tu mensaje.'); }
     }
     link.click();
   });
+  onScroll();
 })();
 </script>
 </body>
