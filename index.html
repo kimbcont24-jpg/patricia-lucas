@@ -10,13 +10,13 @@
 <meta property="og:image" content="hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* Idea: escenario. Azul noche de auditorio, azul real de bandera y un rosa de micrófono encendido. Tarjetas que se abren, menú que se desliza, secciones que se apilan. */
 :root{
   --night:#0C1130; --night-2:#141A45; --paper:#F6F6FA; --white:#FFFFFF; --ink:#11152E; --muted:#5A5F7A; --line:#E2E3EE;
   --royal:#3248D6; --rose:#E24C80; --soft:#C9CEF5;
-  --display:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
   --body:"Manrope", "Segoe UI", system-ui, sans-serif;
   --ease:cubic-bezier(.22,.8,.2,1);
   color-scheme:light;
@@ -24,7 +24,8 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1,h2,h3{font-family:var(--display);font-weight:420;font-variation-settings:"opsz" 144,"SOFT" 50;line-height:1.04;margin:0;text-wrap:balance;letter-spacing:-.025em}
+em{font-weight:380}
 p{margin:0}
 a{color:inherit}
 img,video{max-width:100%;display:block}
@@ -181,20 +182,12 @@ body.menu-open .menu li:nth-child(1){transition-delay:.15s}body.menu-open .menu 
 .hc-go{grid-column:2;grid-row:1/3;width:52px;height:52px;border-radius:16px;background:var(--rose);color:#fff;display:grid;place-items:center;transition:transform .4s var(--ease)}
 .hero-card:hover .hc-go{transform:translateX(4px)}
 .hc-go svg{width:20px;height:20px}
-.need-wrap{position:relative;z-index:5;margin-top:-82px}
-.need{display:flex;align-items:center;gap:18px 30px;flex-wrap:wrap;background:var(--white);border-radius:26px;padding:22px 26px;box-shadow:0 30px 70px -30px rgba(12,17,48,.45),0 0 0 1px var(--line)}
-.need-q{font-family:var(--display);font-size:30px;line-height:1.1;flex:none}
-.need-opts{display:flex;gap:10px;flex-wrap:wrap;flex:1;justify-content:flex-end}
-.need-opts a{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font-weight:700;font-size:14.5px;text-decoration:none;transition:border-color .3s,background .3s,transform .3s var(--ease)}
-.need-opts a:hover{border-color:var(--royal);background:#fff;transform:translateY(-2px)}
-.need-opts svg{width:18px;height:18px;color:var(--royal)}
 .stages{margin-top:34px}
 @media (max-width:980px){
   .hero-card{left:18px;right:18px;bottom:120px;max-width:none}
   .hero-in{padding-bottom:250px;padding-top:150px}
   .hero-pause{top:84px}
   .hero-tint{background:linear-gradient(180deg,rgba(12,17,48,.75),rgba(12,17,48,.85))}
-  .need-opts{justify-content:flex-start}
 }
 
 /* ---------- Escenarios ---------- */
@@ -203,6 +196,60 @@ body.menu-open .menu li:nth-child(1){transition-delay:.15s}body.menu-open .menu 
 .stages small{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);max-width:14ch;line-height:1.4}
 .stages div{font-family:var(--display);font-size:22px;line-height:1.15;border-left:1px solid var(--line);padding-left:20px}
 .stages div b{display:block;font:700 11px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--royal);margin-bottom:4px}
+
+
+/* ===== Barra ¿Qué necesitas hoy? (premium) ===== */
+@property --fx-a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes fx-angle{to{--fx-a:360deg}}
+.need-wrap{position:relative;z-index:5;margin-top:-96px}
+.need{position:relative;display:grid;grid-template-columns:minmax(220px,.8fr) 2.2fr;gap:28px;align-items:center;padding:28px;border-radius:30px;background:linear-gradient(135deg,#151B4D,#0C1130 60%);color:#fff;box-shadow:0 50px 90px -40px rgba(12,17,48,.75)}
+.need::before{content:"";position:absolute;inset:-2px;padding:2px;border-radius:32px;pointer-events:none;background:conic-gradient(from var(--fx-a),rgba(226,76,128,.9),rgba(50,72,214,.2) 25%,rgba(201,206,245,.7) 50%,rgba(50,72,214,.2) 75%,rgba(226,76,128,.9));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:fx-angle 7s linear infinite}
+.need-head{display:flex;flex-direction:column;gap:6px;padding-left:6px}
+.need-k{font:800 11px var(--body);letter-spacing:.22em;text-transform:uppercase;color:#FFB2CB}
+.need-q{font-family:var(--display);font-size:36px;line-height:1.05;letter-spacing:-.02em}
+.need-q em{font-style:italic;color:var(--rose)}
+.need-s{color:var(--soft);font-size:14.5px}
+.need-opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;justify-content:stretch}
+.need-card{position:relative;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:2px 14px;align-items:center;padding:18px 30px 18px 18px;border-radius:20px;text-decoration:none;color:#fff;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);overflow:hidden;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));transition:transform .35s var(--ease),background .35s,box-shadow .35s}
+.need-card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--gx,50%) var(--gy,0%),rgba(226,76,128,.28),transparent 55%);transition:opacity .3s}
+.need-card:hover{--ty:-4px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.26),0 20px 40px -20px rgba(0,0,0,.6)}
+.need-card:hover::after{opacity:1}
+.nc-ic{grid-row:1/3;width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--rose),#8B3FD0);box-shadow:0 10px 22px -8px rgba(226,76,128,.7);transition:transform .5s var(--ease)}
+.need-card:nth-child(2) .nc-ic{background:linear-gradient(135deg,#7A5CFF,var(--royal))}
+.need-card:nth-child(3) .nc-ic{background:linear-gradient(135deg,#3FA9F5,var(--royal))}
+.need-card:nth-child(4) .nc-ic{background:linear-gradient(135deg,#FF8A5C,var(--rose))}
+.need-card:hover .nc-ic{transform:rotate(-8deg) scale(1.06)}
+.nc-ic svg{width:22px;height:22px;color:#fff}
+.nc-t{font-weight:800;font-size:15px;line-height:1.25;align-self:end}
+.nc-s{font-size:12.5px;color:var(--soft);align-self:start}
+.nc-go{position:absolute;top:12px;right:14px;font-weight:800;color:rgba(255,255,255,.45);transition:transform .3s var(--ease),color .3s}
+.need-card:hover .nc-go{transform:translateX(3px);color:#fff}
+
+/* ===== Escenarios: cinta infinita ===== */
+.stages{margin-top:0;padding:70px 0 40px;background:transparent;border:0}
+.stages-head{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:26px}
+.stages-head::before,.stages-head::after{content:"";height:1px;width:min(18vw,180px);background:linear-gradient(90deg,transparent,var(--line))}
+.stages-head::after{transform:scaleX(-1)}
+.stages-head span{font:800 12px var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.st-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.st-marquee ul{list-style:none;margin:0;padding:6px 0;display:flex;gap:16px;width:max-content;animation:marquee 34s linear infinite}
+.st-marquee:hover ul{animation-play-state:paused}
+.st-marquee li{display:flex;align-items:center;gap:14px;padding:14px 24px 14px 14px;border-radius:999px;background:var(--white);box-shadow:0 0 0 1px var(--line),0 14px 30px -22px rgba(12,17,48,.45)}
+.st-ic{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#EEF0FF,#FCE7EF);color:var(--royal)}
+.st-ic svg{width:20px;height:20px}
+.st-tx{display:flex;flex-direction:column;font-family:var(--display);font-size:19px;line-height:1.15;white-space:nowrap}
+.st-tx b{font:800 10.5px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--rose)}
+
+/* Barra de avance arriba */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:70;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--royal),var(--rose))}
+
+@media (max-width:980px){
+  .need{grid-template-columns:1fr;padding:22px}
+  .need-opts{grid-template-columns:1fr 1fr}
+  .need-wrap{margin-top:-70px}
+}
+@media (max-width:520px){.need-opts{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.need::before,.st-marquee ul{animation:none!important}.need-card{transform:none!important}}
 
 /* ---------- Secciones ---------- */
 section{position:relative}
@@ -463,6 +510,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     </div>
   </div>
 </header>
+<div class="progress" id="progress" aria-hidden="true"></div>
 <div class="menu-shade" id="shade"></div>
 <nav class="menu" id="menu" aria-label="Menú principal">
   <ol>
@@ -503,25 +551,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </section>
   <div class="wrap need-wrap">
     <div class="need">
-      <span class="need-q">¿Qué necesitas hoy?</span>
+      <div class="need-head"><span class="need-k">Empecemos</span><span class="need-q">¿Qué necesitas <em>hoy</em>?</span><span class="need-s">Elige una opción y te llevamos directo.</span></div>
       <div class="need-opts">
-        <a href="#contacto" data-interes="Maestría de ceremonias para un evento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Una maestra de ceremonias</a>
-        <a href="#voz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h1M6.5 8v8M10 5v14M13.5 9v6M17 6.5v11M20.5 10.5v3"/></svg>Una voz para mi marca</a>
-        <a href="#cursos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4.5 3.5V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>Aprender oratoria</a>
-        <a href="#contacto" data-interes="Capacitación para mi equipo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M15 20a4.5 4.5 0 0 1 6.5-4"/></svg>Capacitar a mi equipo</a>
+        <a class="need-card" href="#contacto" data-interes="Maestría de ceremonias para un evento"><span class="nc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span class="nc-t">Maestra de ceremonias</span><span class="nc-s">Para tu congreso o acto</span><span class="nc-go">→</span></a>
+        <a class="need-card" href="#voz"><span class="nc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h1M6.5 8v8M10 5v14M13.5 9v6M17 6.5v11M20.5 10.5v3"/></svg></span><span class="nc-t">Voz para mi marca</span><span class="nc-s">Spots, institucional, IVR</span><span class="nc-go">→</span></a>
+        <a class="need-card" href="#cursos"><span class="nc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4.5 3.5V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg></span><span class="nc-t">Aprender oratoria</span><span class="nc-s">Cursos en grupo</span><span class="nc-go">→</span></a>
+        <a class="need-card" href="#contacto" data-interes="Capacitación para mi equipo"><span class="nc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M15 20a4.5 4.5 0 0 1 6.5-4"/></svg></span><span class="nc-t">Capacitar a mi equipo</span><span class="nc-s">Talleres a la medida</span><span class="nc-go">→</span></a>
       </div>
     </div>
   </div>
 
   <!-- ESCENARIOS -->
   <div class="stages">
-    <div class="wrap">
-      <small>Ha tomado el micrófono en</small>
-      <div class="rv"><b>Congreso</b>PREIE 2026</div>
-      <div class="rv d1"><b>Feria</b>XXVII Feria Internacional del Libro</div>
-      <div class="rv d2"><b>Educación</b>Actividades del IDEICE</div>
-      <div class="rv d3"><b>Academia</b>Actos de clausura</div>
-    </div>
+    <div class="stages-head"><span>Ha tomado el micrófono en</span></div>
+    <div class="st-marquee"><ul><li><span class="st-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5z"/><path d="M7 11.5V16c0 1.5 2.5 3 5 3s5-1.5 5-3v-4.5"/></svg></span><span class="st-tx"><b>Congreso</b>PREIE 2026</span></li><li><span class="st-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/></svg></span><span class="st-tx"><b>Feria</b>XXVII Feria Internacional del Libro</span></li><li><span class="st-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5"/></svg></span><span class="st-tx"><b>Educación</b>Actividades del IDEICE</span></li><li><span class="st-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M8.5 13l-1.5 8 5-2.5 5 2.5-1.5-8"/></svg></span><span class="st-tx"><b>Academia</b>Actos de clausura</span></li><li><span class="st-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><span class="st-tx"><b>Institucional</b>Eventos oficiales</span></li><li aria-hidden="true"><span class="st-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5z"/><path d="M7 11.5V16c0 1.5 2.5 3 5 3s5-1.5 5-3v-4.5"/></svg></span><span class="st-tx"><b>Congreso</b>PREIE 2026</span></li><li aria-hidden="true"><span class="st-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/></svg></span><span class="st-tx"><b>Feria</b>XXVII Feria Internacional del Libro</span></li><li aria-hidden="true"><span class="st-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5"/></svg></span><span class="st-tx"><b>Educación</b>Actividades del IDEICE</span></li><li aria-hidden="true"><span class="st-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M8.5 13l-1.5 8 5-2.5 5 2.5-1.5-8"/></svg></span><span class="st-tx"><b>Academia</b>Actos de clausura</span></li><li aria-hidden="true"><span class="st-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><span class="st-tx"><b>Institucional</b>Eventos oficiales</span></li></ul></div>
   </div>
 
   <!-- SERVICIOS: tarjetas que se abren -->
@@ -579,7 +622,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <circle cx="200" cy="270" r="150" stroke-opacity=".12" stroke-width="1.5"/><circle cx="200" cy="270" r="210" stroke-opacity=".08" stroke-width="1.5"/></g>
 <path d="M150 230h100a22 22 0 0 1 22 22v40a22 22 0 0 1-22 22h-48l-30 26v-26h-22a22 22 0 0 1-22-22v-40a22 22 0 0 1 22-22z" fill="#fff"/>
 <g fill="#3248D6"><circle cx="172" cy="272" r="7"/><circle cx="200" cy="272" r="7"/><circle cx="228" cy="272" r="7"/></g>
-<g font-family="Instrument Serif,Georgia,serif" font-style="italic" fill="#fff" fill-opacity=".22" font-size="40"><text x="40" y="120">respira</text><text x="250" y="160">pausa</text><text x="60" y="470">proyecta</text><text x="240" y="510">conecta</text></g>
+<g font-family="Fraunces,Georgia,serif" font-style="italic" fill="#fff" fill-opacity=".22" font-size="40"><text x="40" y="120">respira</text><text x="250" y="160">pausa</text><text x="60" y="470">proyecta</text><text x="240" y="510">conecta</text></g>
 </svg></span>
           <span class="acc-grain" aria-hidden="true"></span><span class="acc-sheen" aria-hidden="true"></span>
           <span class="acc-top"><span class="acc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4.5 3.5V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M8 11h.01M12 11h.01M16 11h.01" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="acc-num">03<em> / 05</em></span></span>
@@ -594,8 +637,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <rect width="400" height="600" fill="url(#g4)"/>
 <g stroke="#11152E" stroke-opacity=".07"><path d="M0 100h400M0 200h400M0 300h400M0 400h400M0 500h400M100 0v600M200 0v600M300 0v600"/></g>
 <circle class="orb" cx="300" cy="140" r="70" fill="#E24C80" opacity=".85"/>
-<text x="40" y="360" font-family="Instrument Serif,Georgia,serif" font-style="italic" font-size="270" fill="#3248D6">P</text>
-<text x="170" y="360" font-family="Instrument Serif,Georgia,serif" font-size="270" fill="#11152E">L</text>
+<text x="40" y="360" font-family="Fraunces,Georgia,serif" font-style="italic" font-size="270" fill="#3248D6">P</text>
+<text x="170" y="360" font-family="Fraunces,Georgia,serif" font-size="270" fill="#11152E">L</text>
 <path class="sign" d="M60 430 C 100 390, 130 470, 165 420 S 220 380, 240 430 S 300 470, 345 410" fill="none" stroke="#E24C80" stroke-width="5" stroke-linecap="round"/>
 
 </svg></span>
@@ -612,7 +655,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <radialGradient id="glow5" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD166" stop-opacity=".55"/><stop offset="1" stop-color="#FFD166" stop-opacity="0"/></radialGradient></defs>
 <rect width="400" height="600" fill="url(#g5)"/>
 <circle cx="200" cy="200" r="190" fill="url(#glow5)"/>
-<text x="95" y="290" font-family="Instrument Serif,Georgia,serif" font-size="300" fill="#E24C80">“</text>
+<text x="95" y="290" font-family="Fraunces,Georgia,serif" font-size="300" fill="#E24C80">“</text>
 <path d="M150 300h100l-12 120h-76z" fill="#fff" fill-opacity=".92"/><rect x="138" y="288" width="124" height="16" rx="4" fill="#fff"/>
 <g><circle class="lit" cx="30" cy="470" r="9" /><circle class="seat" cx="68" cy="470" r="9" /><circle class="seat" cx="106" cy="470" r="9" /><circle class="seat" cx="144" cy="470" r="9" /><circle class="seat" cx="182" cy="470" r="9" /><circle class="lit" cx="220" cy="470" r="9" /><circle class="seat" cx="258" cy="470" r="9" /><circle class="seat" cx="296" cy="470" r="9" /><circle class="seat" cx="334" cy="470" r="9" /><circle class="seat" cx="372" cy="470" r="9" /><circle class="seat" cx="49" cy="504" r="8" /><circle class="lit" cx="87" cy="504" r="8" /><circle class="seat" cx="125" cy="504" r="8" /><circle class="seat" cx="163" cy="504" r="8" /><circle class="seat" cx="201" cy="504" r="8" /><circle class="seat" cx="239" cy="504" r="8" /><circle class="lit" cx="277" cy="504" r="8" /><circle class="seat" cx="315" cy="504" r="8" /><circle class="seat" cx="353" cy="504" r="8" /><circle class="seat" cx="391" cy="504" r="8" /><circle class="seat" cx="30" cy="538" r="7" /><circle class="seat" cx="68" cy="538" r="7" /><circle class="lit" cx="106" cy="538" r="7" /><circle class="seat" cx="144" cy="538" r="7" /><circle class="seat" cx="182" cy="538" r="7" /><circle class="seat" cx="220" cy="538" r="7" /><circle class="seat" cx="258" cy="538" r="7" /><circle class="lit" cx="296" cy="538" r="7" /><circle class="seat" cx="334" cy="538" r="7" /><circle class="seat" cx="372" cy="538" r="7" /><circle class="seat" cx="49" cy="572" r="6" /><circle class="seat" cx="87" cy="572" r="6" /><circle class="seat" cx="125" cy="572" r="6" /><circle class="lit" cx="163" cy="572" r="6" /><circle class="seat" cx="201" cy="572" r="6" /><circle class="seat" cx="239" cy="572" r="6" /><circle class="seat" cx="277" cy="572" r="6" /><circle class="seat" cx="315" cy="572" r="6" /><circle class="lit" cx="353" cy="572" r="6" /><circle class="seat" cx="391" cy="572" r="6" /></g>
 </svg></span>
@@ -941,6 +984,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     function loop(t){ draw(t); if (!reduce) requestAnimationFrame(loop); }
     size(); window.addEventListener('resize', size); requestAnimationFrame(loop);
   }
+
+  /* Tarjetas de ¿Qué necesitas hoy?: inclinación con brillo */
+  document.querySelectorAll('.need-card').forEach(function(card){
+    card.addEventListener('pointermove', function(e){ if (e.pointerType !== 'mouse' || reduce) return; var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      card.style.setProperty('--ry', ((x - .5) * 10) + 'deg'); card.style.setProperty('--rx', ((.5 - y) * 10) + 'deg');
+      card.style.setProperty('--gx', (x * 100) + '%'); card.style.setProperty('--gy', (y * 100) + '%'); });
+    card.addEventListener('pointerleave', function(){ card.style.setProperty('--rx','0deg'); card.style.setProperty('--ry','0deg'); });
+  });
+  /* Barra de avance */
+  var prog = document.getElementById('progress');
+  window.addEventListener('scroll', function(){ requestAnimationFrame(function(){ var h = document.documentElement.scrollHeight - innerHeight; prog.style.transform = 'scaleX(' + (h > 0 ? scrollY / h : 0) + ')'; }); }, {passive:true});
 
   /* Portada: texto que se escribe y pausa del video */
   var typed = document.getElementById('typed');
