@@ -79,7 +79,7 @@ body.menu-open .menu li:nth-child(1){transition-delay:.15s}body.menu-open .menu 
 .hero h1{font-size:clamp(54px,7.6vw,112px);margin-top:20px}
 .hero h1 em{font-style:italic;color:var(--rose)}
 .hero .lead{font-size:19px;color:var(--soft);max-width:50ch;margin-top:24px}
-.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0 54px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0 130px}
 .portrait{position:relative;margin:0;border-radius:260px 260px 0 0;overflow:hidden;aspect-ratio:3/4.1;box-shadow:0 -20px 80px rgba(50,72,214,.35)}
 .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;transform:scale(1.05);transition:transform 1.6s var(--ease)}
 .loaded .portrait img{transform:scale(1)}
@@ -92,6 +92,27 @@ body.menu-open .menu li:nth-child(1){transition-delay:.15s}body.menu-open .menu 
 .marquee span{font-family:var(--display);font-size:30px;font-style:italic;color:#fff;display:inline-flex;align-items:center;gap:48px}
 .marquee span::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--rose)}
 @keyframes marquee{to{transform:translateX(-50%)}}
+
+
+/* Micrófono de la portada */
+.mic-stage{position:relative;aspect-ratio:1/1;max-width:540px;width:100%;justify-self:center;align-self:center;margin-bottom:40px;perspective:1000px}
+.mic-stage::before{content:"";position:absolute;inset:6% 4% 0;border-radius:50%;background:radial-gradient(circle at 50% 42%,rgba(91,116,255,.55),rgba(226,76,128,.18) 45%,transparent 70%);filter:blur(8px)}
+.mic-ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 40s linear infinite;opacity:.75}
+.mic-ring text{font:800 14px var(--body);letter-spacing:.2em;fill:#C9CEF5}
+@keyframes spin{to{transform:rotate(360deg)}}
+.mic-waves{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.mw{fill:none;stroke:#fff;stroke-width:1.2;transform-box:fill-box;transform-origin:50% 50%;animation:ring 5.4s ease-out infinite;opacity:0}
+.w2{animation-delay:1.8s}.w3{animation-delay:3.6s}
+.mic-float{position:absolute;inset:12% 18% 7%;animation:hover 7s ease-in-out infinite}
+@keyframes hover{50%{transform:translateY(-14px)}}
+.mic{width:100%;height:100%;overflow:visible;transform:rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .6s var(--ease);transform-style:preserve-3d}
+.mic-sweep{animation:sweep 5.5s var(--ease) infinite}
+@keyframes sweep{0%{transform:translateX(0)}55%,100%{transform:translateX(480px)}}
+.mic-led{animation:twinkle 1.6s ease-in-out infinite}
+.mic-dust circle{animation:twinkle 3.2s ease-in-out infinite}
+.mic-dust circle:nth-child(2n){animation-delay:-1.4s}
+.mic-stage .onair{top:auto;bottom:12%;left:0}
+@media (max-width:980px){.mic-stage{max-width:420px;margin:0 auto 30px}}
 
 /* ---------- Escenarios ---------- */
 .stages{background:var(--white);border-bottom:1px solid var(--line)}
@@ -388,10 +409,53 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           <a class="btn" href="#servicios">Ver servicios</a>
         </div>
       </div>
-      <figure class="portrait rv d1">
-        <img src="hero.jpg" alt="Patricia Lucas conduciendo en la XXVII Feria Internacional del Libro de Santo Domingo">
+      <div class="mic-stage rv d1" id="micStage">
+        <svg class="mic-ring" viewBox="0 0 500 500" aria-hidden="true"><defs><path id="ringPath" d="M250 250 m-232 0 a232 232 0 1 1 464 0 a232 232 0 1 1 -464 0"/></defs>
+          <text><textPath href="#ringPath" startOffset="0" textLength="1455" lengthAdjust="spacing">MAESTRÍA DE CEREMONIAS · LOCUCIÓN · ORATORIA · MARCA PERSONAL · CONFERENCIAS · </textPath></text></svg>
+        <svg class="mic-waves" viewBox="0 0 500 500" aria-hidden="true"><circle class="mw w1" cx="250" cy="220" r="80"/><circle class="mw w2" cx="250" cy="220" r="80"/><circle class="mw w3" cx="250" cy="220" r="80"/></svg>
+        <div class="mic-float">
+        <svg class="mic" viewBox="0 0 400 560" role="img" aria-label="Micrófono clásico de transmisión, símbolo de la marca de Patricia Lucas">
+          <defs>
+            <linearGradient id="chrome" x1="0" x2="1"><stop offset="0" stop-color="#2A2F5C"/><stop offset=".18" stop-color="#9BA4DA"/><stop offset=".34" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#C9CEF5"/><stop offset=".66" stop-color="#4A5190"/><stop offset=".82" stop-color="#E9ECFF"/><stop offset="1" stop-color="#1D2250"/></linearGradient>
+            <linearGradient id="rib" x1="0" x2="1"><stop offset="0" stop-color="#1A1E44"/><stop offset=".14" stop-color="#7C85C4"/><stop offset=".3" stop-color="#F7F8FF"/><stop offset=".44" stop-color="#B9C0EE"/><stop offset=".6" stop-color="#3D4483"/><stop offset=".78" stop-color="#DDE1FF"/><stop offset=".92" stop-color="#596199"/><stop offset="1" stop-color="#14183A"/></linearGradient>
+            <linearGradient id="chromeV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6FF"/><stop offset=".5" stop-color="#7D86C6"/><stop offset="1" stop-color="#20254F"/></linearGradient>
+            <radialGradient id="knob" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#AEB5E6"/><stop offset="1" stop-color="#1D2250"/></radialGradient>
+            <radialGradient id="baseGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E24C80" stop-opacity=".85"/><stop offset=".6" stop-color="#E24C80" stop-opacity=".18"/><stop offset="1" stop-color="#E24C80" stop-opacity="0"/></radialGradient>
+            <linearGradient id="roseEdge" x1="0" x2="1"><stop offset="0" stop-color="#FF5C93" stop-opacity=".75"/><stop offset=".25" stop-color="#FF5C93" stop-opacity="0"/><stop offset=".8" stop-color="#5B74FF" stop-opacity="0"/><stop offset="1" stop-color="#5B74FF" stop-opacity=".7"/></linearGradient>
+            <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="1"><stop offset=".38" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".85"/><stop offset=".62" stop-color="#fff" stop-opacity="0"/></linearGradient>
+            <clipPath id="bodyClip"><path d="M200 58C292 58 306 122 306 196S292 334 200 334 94 270 94 196 108 58 200 58Z"/></clipPath>
+            <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+            <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#05071A" flood-opacity=".65"/></filter>
+          </defs>
+          <ellipse cx="200" cy="512" rx="150" ry="26" fill="url(#baseGlow)"/>
+          <g filter="url(#shadow)">
+            <!-- soporte -->
+            <path d="M92 210C92 330 140 386 200 386S308 330 308 210" fill="none" stroke="url(#chrome)" stroke-width="12" stroke-linecap="round"/>
+            <rect x="189" y="384" width="22" height="104" rx="6" fill="url(#chrome)"/>
+            <rect x="182" y="380" width="36" height="16" rx="5" fill="url(#chromeV)"/>
+            <ellipse cx="200" cy="496" rx="96" ry="17" fill="url(#chromeV)"/>
+            <ellipse cx="200" cy="490" rx="88" ry="11" fill="url(#chrome)"/>
+            <!-- cuerpo -->
+            <path d="M200 58C292 58 306 122 306 196S292 334 200 334 94 270 94 196 108 58 200 58Z" fill="#0E1233"/>
+            <g clip-path="url(#bodyClip)">
+              <rect x="88" y="78" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="86" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="94" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="102" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="110" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="118" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="126" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="134" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="142" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="150" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="158" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="166" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="174" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="182" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="190" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="198" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="206" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="214" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="222" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="230" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="238" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="246" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="254" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="262" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="270" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="278" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="286" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="294" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="302" width="224" height="4.6" rx="2.3" fill="url(#rib)"/><rect x="88" y="310" width="224" height="4.6" rx="2.3" fill="url(#rib)"/>
+              <rect x="88" y="50" width="224" height="300" fill="url(#roseEdge)" style="mix-blend-mode:screen"/>
+              <rect x="132" y="70" width="16" height="250" rx="8" fill="#fff" opacity=".45" filter="url(#soft)"/>
+              <rect class="mic-sweep" x="-200" y="40" width="260" height="320" fill="url(#sweep)" style="mix-blend-mode:overlay"/>
+            </g>
+            <rect x="190" y="60" width="20" height="272" rx="10" fill="url(#chrome)"/>
+            <rect x="196" y="66" width="4" height="260" rx="2" fill="#fff" opacity=".7"/>
+            <path d="M200 58C292 58 306 122 306 196S292 334 200 334 94 270 94 196 108 58 200 58Z" fill="none" stroke="url(#chrome)" stroke-width="7"/>
+            <circle cx="92" cy="210" r="15" fill="url(#knob)"/><circle cx="308" cy="210" r="15" fill="url(#knob)"/>
+            <circle cx="92" cy="210" r="5" fill="#1A1E44"/><circle cx="308" cy="210" r="5" fill="#1A1E44"/>
+            <!-- luz al aire -->
+            <circle class="mic-led" cx="200" cy="356" r="6" fill="#FF3D6E"/>
+          </g>
+          <g fill="#fff" class="mic-dust"><circle cx="60" cy="90" r="2"/><circle cx="350" cy="140" r="1.6"/><circle cx="330" cy="300" r="2.2"/><circle cx="48" cy="330" r="1.4"/><circle cx="370" cy="420" r="1.8"/></g>
+        </svg>
+        </div>
         <span class="onair"><i></i>Al aire</span>
-      </figure>
+      </div>
     </div>
     <canvas id="wave" aria-hidden="true"></canvas>
   </section>
@@ -759,6 +823,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     }
     function loop(t){ draw(t); if (!reduce) requestAnimationFrame(loop); }
     size(); window.addEventListener('resize', size); requestAnimationFrame(loop);
+  }
+
+  /* Micrófono: sigue el cursor */
+  var stage = document.getElementById('micStage');
+  if (stage && !reduce && window.matchMedia('(hover:hover)').matches) {
+    var hero = document.querySelector('.hero'), mic = stage.querySelector('.mic');
+    hero.addEventListener('mousemove', function(e){
+      var r = stage.getBoundingClientRect();
+      var x = (e.clientX - (r.left + r.width/2)) / r.width, y = (e.clientY - (r.top + r.height/2)) / r.height;
+      mic.style.setProperty('--ry', (x * 18).toFixed(2) + 'deg');
+      mic.style.setProperty('--rx', (-y * 12).toFixed(2) + 'deg');
+    });
+    hero.addEventListener('mouseleave', function(){ mic.style.setProperty('--ry','0deg'); mic.style.setProperty('--rx','0deg'); });
   }
 
   /* Contacto */
