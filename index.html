@@ -154,6 +154,49 @@ body.menu-open .menu li:nth-child(1){transition-delay:.15s}body.menu-open .menu 
 .topics li{font-size:14px;font-weight:600;padding:7px 13px;border-radius:999px;background:var(--paper);border:1px solid var(--line)}
 @media (max-width:980px){.voz{grid-template-columns:1fr}.hero-video{max-width:380px;margin:0 auto 50px}}
 
+
+/* Portada a pantalla completa con video */
+.hero-full{min-height:100vh;min-height:100svh;padding:0;display:flex;align-items:center}
+.hero-full::before,.hero-full::after{display:none}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-tint{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(12,17,48,.94) 0%,rgba(12,17,48,.82) 38%,rgba(20,26,90,.55) 70%,rgba(12,17,48,.45) 100%),radial-gradient(60% 80% at 85% 90%,rgba(226,76,128,.35),transparent 70%)}
+.hero-tint::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,17,48,.55),transparent 22%,transparent 70%,rgba(12,17,48,.75))}
+.hero-in{position:relative;z-index:3;padding-top:130px;padding-bottom:170px;width:100%}
+.hero-title{font-size:clamp(52px,7.2vw,108px);margin-top:20px;max-width:13ch;line-height:1}
+.typed{font-style:italic;color:var(--rose);white-space:nowrap}
+.caret{display:inline-block;width:4px;height:.82em;margin-left:6px;background:var(--rose);vertical-align:-.06em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-full .lead{font-size:19px;color:#D9DCF7;max-width:52ch;margin-top:26px}
+.hero-full .ctas{display:flex;gap:12px;flex-wrap:wrap;margin:34px 0 0}
+.btn.ghost-w{color:#fff;border-color:rgba(255,255,255,.7);backdrop-filter:blur(6px)}
+.btn.ghost-w:hover{background:#fff;color:var(--night)}
+.hero-pause{position:absolute;z-index:4;top:96px;right:clamp(18px,4vw,44px);width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;color:#fff;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3);display:grid;place-items:center}
+.hero-pause svg{width:16px;height:16px}
+.hero-pause .iy{display:none}.hero-pause[aria-pressed="true"] .ip{display:none}.hero-pause[aria-pressed="true"] .iy{display:inline}
+.hero-card{position:absolute;z-index:4;right:clamp(18px,4vw,44px);bottom:150px;display:grid;grid-template-columns:1fr auto;gap:4px 22px;align-items:center;padding:20px 22px 20px 24px;border-radius:22px;background:rgba(255,255,255,.96);color:var(--night);text-decoration:none;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);max-width:400px;transition:transform .4s var(--ease)}
+.hero-card:hover{transform:translateY(-4px)}
+.hc-k{grid-column:1;display:flex;align-items:center;gap:8px;font:800 11px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--rose)}
+.hc-k i{width:8px;height:8px;border-radius:50%;background:var(--rose);animation:pulse 1.8s infinite}
+.hc-t{grid-column:1;font-family:var(--display);font-size:23px;line-height:1.15}
+.hc-go{grid-column:2;grid-row:1/3;width:52px;height:52px;border-radius:16px;background:var(--rose);color:#fff;display:grid;place-items:center;transition:transform .4s var(--ease)}
+.hero-card:hover .hc-go{transform:translateX(4px)}
+.hc-go svg{width:20px;height:20px}
+.need-wrap{position:relative;z-index:5;margin-top:-82px}
+.need{display:flex;align-items:center;gap:18px 30px;flex-wrap:wrap;background:var(--white);border-radius:26px;padding:22px 26px;box-shadow:0 30px 70px -30px rgba(12,17,48,.45),0 0 0 1px var(--line)}
+.need-q{font-family:var(--display);font-size:30px;line-height:1.1;flex:none}
+.need-opts{display:flex;gap:10px;flex-wrap:wrap;flex:1;justify-content:flex-end}
+.need-opts a{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font-weight:700;font-size:14.5px;text-decoration:none;transition:border-color .3s,background .3s,transform .3s var(--ease)}
+.need-opts a:hover{border-color:var(--royal);background:#fff;transform:translateY(-2px)}
+.need-opts svg{width:18px;height:18px;color:var(--royal)}
+.stages{margin-top:34px}
+@media (max-width:980px){
+  .hero-card{left:18px;right:18px;bottom:120px;max-width:none}
+  .hero-in{padding-bottom:250px;padding-top:150px}
+  .hero-pause{top:84px}
+  .hero-tint{background:linear-gradient(180deg,rgba(12,17,48,.75),rgba(12,17,48,.85))}
+  .need-opts{justify-content:flex-start}
+}
+
 /* ---------- Escenarios ---------- */
 .stages{background:var(--white);border-bottom:1px solid var(--line)}
 .stages .wrap{display:grid;grid-template-columns:170px repeat(4,1fr);gap:24px;align-items:center;padding-top:26px;padding-bottom:26px}
@@ -439,32 +482,34 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <main id="inicio">
   <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow">Maestra de ceremonias · Locutora · Oratoria</span>
-        <h1 class="split" data-split>La voz que hace <em>memorable</em> tu evento.</h1>
-        <p class="lead rv d2">Patricia Lucas conduce congresos, actos institucionales y académicos, presta su voz a marcas y entrena a profesionales para hablar en público con seguridad.</p>
-        <div class="ctas rv d3">
-          <a class="btn rose" href="#contacto">Contrátala para tu evento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn" href="#servicios">Ver servicios</a>
-        </div>
-      </div>
-      <div class="hero-video rv d1" id="heroVideo">
-        <video id="hv" src="video4.mp4" poster="poster4.jpg" autoplay muted playsinline preload="auto"></video>
-        <span class="hv-shade" aria-hidden="true"></span>
-        <span class="onair"><i></i>En escena</span>
-        <div class="hv-info"><span class="hv-k">Ahora viendo</span><span class="hv-t" id="hvT">XXVII Feria Internacional del Libro</span>
-          <div class="hv-dots" id="hvDots"><button type="button" aria-label="Video 1" class="on"></button><button type="button" aria-label="Video 2"></button><button type="button" aria-label="Video 3"></button><button type="button" aria-label="Video 4"></button></div></div>
-        <button class="hv-sound" id="hvSound" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="sx" d="M17 9l4 6M21 9l-4 6"/><path class="sw" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span>Activar sonido</span></button>
+  <section class="hero hero-full">
+    <video class="hero-bg" id="heroBg" src="hero-montaje.mp4" poster="hero-montaje.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <span class="hero-tint" aria-hidden="true"></span>
+    <button class="hero-pause" id="heroPause" type="button" aria-label="Pausar video de fondo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="currentColor"><path class="ip" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/><path class="iy" d="M7 4.5l12 7.5-12 7.5z"/></svg></button>
+    <div class="wrap hero-in">
+      <span class="eyebrow rv">Maestra de ceremonias · Locutora · Oratoria</span>
+      <h1 class="hero-title"><span class="split" data-split>La voz que hace memorable</span><br><span class="typed" id="typed" aria-live="polite">tu evento</span><span class="caret" aria-hidden="true"></span></h1>
+      <p class="lead rv d2">Patricia Lucas conduce congresos, actos institucionales y académicos, presta su voz a marcas y entrena a profesionales para hablar en público con seguridad.</p>
+      <div class="ctas rv d3">
+        <a class="btn rose" href="#contacto">Contrátala para tu evento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost-w" href="#en-escena">Verla en escena</a>
       </div>
     </div>
-    <canvas id="wave" aria-hidden="true"></canvas>
+    <a class="hero-card rv d3" href="#contacto" data-interes="Maestría de ceremonias para un evento">
+      <span class="hc-k"><i></i>Reserva tu fecha</span>
+      <span class="hc-t">Contrata a Patricia para tu próximo evento</span>
+      <span class="hc-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
   </section>
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Maestría de ceremonias</span><span>Locución comercial</span><span>Oratoria</span><span>Marca personal</span><span>Conferencias</span><span>Preparación de voceros</span>
-      <span>Maestría de ceremonias</span><span>Locución comercial</span><span>Oratoria</span><span>Marca personal</span><span>Conferencias</span><span>Preparación de voceros</span>
+  <div class="wrap need-wrap">
+    <div class="need">
+      <span class="need-q">¿Qué necesitas hoy?</span>
+      <div class="need-opts">
+        <a href="#contacto" data-interes="Maestría de ceremonias para un evento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Una maestra de ceremonias</a>
+        <a href="#voz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h1M6.5 8v8M10 5v14M13.5 9v6M17 6.5v11M20.5 10.5v3"/></svg>Una voz para mi marca</a>
+        <a href="#cursos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4.5 3.5V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>Aprender oratoria</a>
+        <a href="#contacto" data-interes="Capacitación para mi equipo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M15 20a4.5 4.5 0 0 1 6.5-4"/></svg>Capacitar a mi equipo</a>
+      </div>
     </div>
   </div>
 
@@ -877,7 +922,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   }
 
   /* Onda de voz en la portada */
-  var cv = document.getElementById('wave'), ctx = cv.getContext && cv.getContext('2d');
+  var cv = document.getElementById('wave'), ctx = cv && cv.getContext && cv.getContext('2d');
   if (ctx) {
     var W, H, dpr = Math.min(window.devicePixelRatio || 1, 2), t0 = 0;
     function size(){ W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
@@ -895,6 +940,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     }
     function loop(t){ draw(t); if (!reduce) requestAnimationFrame(loop); }
     size(); window.addEventListener('resize', size); requestAnimationFrame(loop);
+  }
+
+  /* Portada: texto que se escribe y pausa del video */
+  var typed = document.getElementById('typed');
+  if (typed && !reduce) {
+    var words = ['tu evento', 'tu marca', 'tu congreso', 'tu mensaje', 'tu escenario'], wi = 0, ch = words[0].length, del = true;
+    setTimeout(function tick(){
+      var w = words[wi];
+      if (del) { ch--; if (ch <= 3) { del = false; wi = (wi + 1) % words.length; w = words[wi]; } }
+      else { ch++; if (ch >= w.length) { del = true; typed.textContent = w; return setTimeout(tick, 2200); } }
+      typed.textContent = words[wi].slice(0, ch);
+      setTimeout(tick, del ? 55 : 95);
+    }, 2600);
+  }
+  var bg = document.getElementById('heroBg'), pz = document.getElementById('heroPause');
+  if (bg && pz) {
+    if (reduce) { bg.pause(); pz.setAttribute('aria-pressed','true'); }
+    pz.addEventListener('click', function(){
+      if (bg.paused) { var pr = bg.play(); if (pr && pr.catch) pr.catch(function(){}); pz.setAttribute('aria-pressed','false'); pz.setAttribute('aria-label','Pausar video de fondo'); }
+      else { bg.pause(); pz.setAttribute('aria-pressed','true'); pz.setAttribute('aria-label','Reproducir video de fondo'); }
+    });
   }
 
   /* Video de portada: recorre varios clips */
