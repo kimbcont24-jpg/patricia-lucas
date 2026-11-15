@@ -132,6 +132,31 @@ section{position:relative}
 .acc:hover .acc-item.active .acc-bar i{animation-play-state:paused}
 @keyframes bar{to{width:100%}}
 
+
+/* Portadas ilustradas de servicios */
+.cover{position:absolute;inset:0;display:block;transition:transform 1.4s var(--ease),filter .8s}
+.cover svg{width:100%;height:100%;display:block}
+.acc-item:not(.active) .cover{filter:saturate(.75) brightness(.7);transform:scale(1.12)}
+.acc-item.active .cover{transform:scale(1)}
+.beam{transform-box:fill-box;transform-origin:50% 0;animation:sway 7s ease-in-out infinite}
+.b2{animation-duration:9s;animation-direction:reverse}.b3{animation-duration:11s}
+@keyframes sway{50%{transform:rotate(7deg)}}
+.spark{animation:twinkle 3s ease-in-out infinite}.s2{animation-delay:-1s}.s3{animation-delay:-2s}
+@keyframes twinkle{50%{opacity:.15}}
+.bar{transform-box:fill-box;transform-origin:50% 50%;animation:eq 1.2s ease-in-out infinite}
+@keyframes eq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.rec{animation:twinkle 1.4s ease-in-out infinite}
+.ring{transform-box:fill-box;transform-origin:50% 50%;animation:ring 4.5s ease-out infinite}
+.r2{animation-delay:1.5s}.r3{animation-delay:3s}
+@keyframes ring{0%{transform:scale(1);opacity:.9}100%{transform:scale(3.6);opacity:0}}
+.orb{animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translate(-14px,18px)}}
+.sign{stroke-dasharray:520;stroke-dashoffset:520}
+.acc-item.active .sign{animation:draw 2.2s .4s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.seat{fill:#fff;fill-opacity:.18}.lit{fill:#FFD166;animation:twinkle 2.6s ease-in-out infinite}
+.acc-item:not(.active) .cover *{animation-play-state:paused}
+
 /* ---------- En escena (videos tipo Luisa) ---------- */
 .stage-bg{background:var(--night);color:#fff;overflow:hidden}
 .stage-bg .eyebrow{color:#FFB2CB}
@@ -239,6 +264,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js .rv{opacity:1;transform:none}
   .split .w>span{transform:none}
+  .sign{stroke-dashoffset:0}
 }
 </style>
 </head>
@@ -315,27 +341,73 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       </div>
       <div class="acc rv" id="acc">
         <div class="acc-item active" role="button" tabindex="0" aria-expanded="true">
-          <img src="poster4.jpg" alt="">
+          <span class="cover cv1" aria-hidden="true"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1660"/><stop offset="1" stop-color="#0A0E2A"/></linearGradient>
+<linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<radialGradient id="floor" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E24C80" stop-opacity=".75"/><stop offset="1" stop-color="#E24C80" stop-opacity="0"/></radialGradient></defs>
+<rect width="400" height="600" fill="url(#g1)"/>
+<g class="beam b1"><polygon points="70,-10 110,-10 260,520 120,520" fill="url(#beam)" opacity=".5"/></g>
+<g class="beam b2"><polygon points="290,-10 330,-10 280,520 140,520" fill="url(#beam)" opacity=".45"/></g>
+<g class="beam b3"><polygon points="185,-10 215,-10 250,520 150,520" fill="url(#beam)" opacity=".35"/></g>
+<ellipse cx="200" cy="520" rx="170" ry="38" fill="url(#floor)"/>
+<g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"><rect x="172" y="250" width="56" height="96" rx="28"/><path d="M152 320a48 48 0 0 0 96 0M200 368v100M160 470h80"/></g>
+<g stroke="#fff" stroke-opacity=".5" stroke-width="3"><path d="M182 280h36M182 298h36M182 316h36"/></g>
+<g fill="#fff"><circle class="spark s1" cx="90" cy="150" r="2.5"/><circle class="spark s2" cx="320" cy="110" r="2"/><circle class="spark s3" cx="270" cy="220" r="2.5"/><circle class="spark s1" cx="120" cy="260" r="1.8"/></g>
+</svg></span>
           <span class="acc-num">01</span><span class="acc-label">Maestría de ceremonias</span><span class="acc-bar"><i></i></span>
           <span class="acc-body"><h3>Maestría de ceremonias</h3><p>Conduce congresos, ferias, lanzamientos y actos institucionales con guion, ritmo y protocolo. Tu programa fluye y tus invitados se sienten atendidos.</p><ul><li>Congresos</li><li>Actos oficiales</li><li>Lanzamientos</li><li>Galas</li></ul></span>
         </div>
         <div class="acc-item" role="button" tabindex="0" aria-expanded="false">
-          <img src="poster1.jpg" alt="">
+          <span class="cover cv2" aria-hidden="true"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0578C"/><stop offset=".55" stop-color="#9A36C9"/><stop offset="1" stop-color="#3A2096"/></linearGradient></defs>
+<rect width="400" height="600" fill="url(#g2)"/>
+<circle cx="330" cy="90" r="160" fill="#fff" opacity=".07"/><circle cx="40" cy="560" r="200" fill="#000" opacity=".08"/>
+<g transform="translate(118 140)"><rect width="164" height="58" rx="14" fill="#1A0B2E" opacity=".55" stroke="#FFD2E1" stroke-width="2"/><circle class="rec" cx="28" cy="29" r="9" fill="#FF3D6E"/><text x="48" y="38" font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="24" letter-spacing="3" fill="#fff">AL AIRE</text></g>
+<g fill="#fff" transform="translate(30 300)">
+<rect class="bar" style="animation-delay:-0.00s" x="0" y="-16" width="9" height="32" rx="4.5"/><rect class="bar" style="animation-delay:-0.13s" x="17" y="-30" width="9" height="60" rx="4.5"/><rect class="bar" style="animation-delay:-0.26s" x="34" y="-52" width="9" height="104" rx="4.5"/><rect class="bar" style="animation-delay:-0.39s" x="51" y="-80" width="9" height="160" rx="4.5"/><rect class="bar" style="animation-delay:-0.52s" x="68" y="-64" width="9" height="128" rx="4.5"/><rect class="bar" style="animation-delay:-0.65s" x="85" y="-104" width="9" height="208" rx="4.5"/><rect class="bar" style="animation-delay:-0.78s" x="102" y="-130" width="9" height="260" rx="4.5"/><rect class="bar" style="animation-delay:-0.91s" x="119" y="-96" width="9" height="192" rx="4.5"/><rect class="bar" style="animation-delay:-1.04s" x="136" y="-70" width="9" height="140" rx="4.5"/><rect class="bar" style="animation-delay:-1.17s" x="153" y="-118" width="9" height="236" rx="4.5"/><rect class="bar" style="animation-delay:-0.10s" x="170" y="-86" width="9" height="172" rx="4.5"/><rect class="bar" style="animation-delay:-0.23s" x="187" y="-58" width="9" height="116" rx="4.5"/><rect class="bar" style="animation-delay:-0.36s" x="204" y="-40" width="9" height="80" rx="4.5"/><rect class="bar" style="animation-delay:-0.49s" x="221" y="-74" width="9" height="148" rx="4.5"/><rect class="bar" style="animation-delay:-0.62s" x="238" y="-50" width="9" height="100" rx="4.5"/><rect class="bar" style="animation-delay:-0.75s" x="255" y="-28" width="9" height="56" rx="4.5"/><rect class="bar" style="animation-delay:-0.88s" x="272" y="-18" width="9" height="36" rx="4.5"/><rect class="bar" style="animation-delay:-1.01s" x="289" y="-12" width="9" height="24" rx="4.5"/><rect class="bar" style="animation-delay:-1.14s" x="306" y="-26" width="9" height="52" rx="4.5"/><rect class="bar" style="animation-delay:-0.07s" x="323" y="-44" width="9" height="88" rx="4.5"/>
+</g>
+<path d="M30 420 C 120 400, 160 440, 240 415 S 350 400, 370 420" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>
+</svg></span>
           <span class="acc-num">02</span><span class="acc-label">Locución</span><span class="acc-bar"><i></i></span>
           <span class="acc-body"><h3>Locución</h3><p>La voz de tu marca: anuncios, videos institucionales, mensajes telefónicos y narración de cursos, con una voz cálida y clara.</p><ul><li>Comerciales</li><li>Institucional</li><li>Mensajes telefónicos</li><li>E-learning</li></ul></span>
         </div>
         <div class="acc-item" role="button" tabindex="0" aria-expanded="false">
-          <img src="poster6.jpg" alt="">
+          <span class="cover cv3" aria-hidden="true"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
+<defs><radialGradient id="g3" cx=".5" cy=".45" r=".75"><stop offset="0" stop-color="#4F66F0"/><stop offset="1" stop-color="#151E72"/></radialGradient></defs>
+<rect width="400" height="600" fill="url(#g3)"/>
+<g fill="none" stroke="#fff"><circle class="ring r1" cx="200" cy="270" r="60" stroke-opacity=".6" stroke-width="2"/><circle class="ring r2" cx="200" cy="270" r="60" stroke-opacity=".6" stroke-width="2"/><circle class="ring r3" cx="200" cy="270" r="60" stroke-opacity=".6" stroke-width="2"/>
+<circle cx="200" cy="270" r="150" stroke-opacity=".12" stroke-width="1.5"/><circle cx="200" cy="270" r="210" stroke-opacity=".08" stroke-width="1.5"/></g>
+<path d="M150 230h100a22 22 0 0 1 22 22v40a22 22 0 0 1-22 22h-48l-30 26v-26h-22a22 22 0 0 1-22-22v-40a22 22 0 0 1 22-22z" fill="#fff"/>
+<g fill="#3248D6"><circle cx="172" cy="272" r="7"/><circle cx="200" cy="272" r="7"/><circle cx="228" cy="272" r="7"/></g>
+<g font-family="Instrument Serif,Georgia,serif" font-style="italic" fill="#fff" fill-opacity=".22" font-size="40"><text x="40" y="120">respira</text><text x="250" y="160">pausa</text><text x="60" y="470">proyecta</text><text x="240" y="510">conecta</text></g>
+</svg></span>
           <span class="acc-num">03</span><span class="acc-label">Oratoria y cursos</span><span class="acc-bar"><i></i></span>
           <span class="acc-body"><h3>Oratoria y cursos</h3><p>Programas para perder el miedo escénico, proyectar la voz y estructurar mensajes que se recuerdan. Para personas y para equipos.</p><ul><li>Grupales</li><li>In company</li><li>Presencial y virtual</li></ul></span>
         </div>
         <div class="acc-item" role="button" tabindex="0" aria-expanded="false">
-          <img src="poster7.jpg" alt="">
+          <span class="cover cv4" aria-hidden="true"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE3EC"/><stop offset=".6" stop-color="#F7C9DA"/><stop offset="1" stop-color="#C9CEF5"/></linearGradient></defs>
+<rect width="400" height="600" fill="url(#g4)"/>
+<g stroke="#11152E" stroke-opacity=".07"><path d="M0 100h400M0 200h400M0 300h400M0 400h400M0 500h400M100 0v600M200 0v600M300 0v600"/></g>
+<circle class="orb" cx="300" cy="140" r="70" fill="#E24C80" opacity=".85"/>
+<text x="40" y="360" font-family="Instrument Serif,Georgia,serif" font-style="italic" font-size="270" fill="#3248D6">P</text>
+<text x="170" y="360" font-family="Instrument Serif,Georgia,serif" font-size="270" fill="#11152E">L</text>
+<path class="sign" d="M60 430 C 100 390, 130 470, 165 420 S 220 380, 240 430 S 300 470, 345 410" fill="none" stroke="#E24C80" stroke-width="5" stroke-linecap="round"/>
+<g font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="13" letter-spacing="4" fill="#11152E" fill-opacity=".55"><text x="40" y="150">VOZ · PRESENCIA · AUTORIDAD</text></g>
+</svg></span>
           <span class="acc-num">04</span><span class="acc-label">Marca personal</span><span class="acc-bar"><i></i></span>
           <span class="acc-body"><h3>Marca personal y voceros</h3><p>Acompaña a líderes y voceros para que su voz y su presencia transmitan la misma autoridad que su trayectoria, frente a medios, juntas o escenarios.</p><ul><li>Voceros</li><li>Ejecutivos</li><li>Entrevistas</li></ul></span>
         </div>
         <div class="acc-item" role="button" tabindex="0" aria-expanded="false">
-          <img src="poster8.jpg" alt="">
+          <span class="cover cv5" aria-hidden="true"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0F3B4F"/><stop offset="1" stop-color="#0B1030"/></linearGradient>
+<radialGradient id="glow5" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD166" stop-opacity=".55"/><stop offset="1" stop-color="#FFD166" stop-opacity="0"/></radialGradient></defs>
+<rect width="400" height="600" fill="url(#g5)"/>
+<circle cx="200" cy="200" r="190" fill="url(#glow5)"/>
+<text x="95" y="290" font-family="Instrument Serif,Georgia,serif" font-size="300" fill="#E24C80">“</text>
+<path d="M150 300h100l-12 120h-76z" fill="#fff" fill-opacity=".92"/><rect x="138" y="288" width="124" height="16" rx="4" fill="#fff"/>
+<g><circle class="lit" cx="30" cy="470" r="9" /><circle class="seat" cx="68" cy="470" r="9" /><circle class="seat" cx="106" cy="470" r="9" /><circle class="seat" cx="144" cy="470" r="9" /><circle class="seat" cx="182" cy="470" r="9" /><circle class="lit" cx="220" cy="470" r="9" /><circle class="seat" cx="258" cy="470" r="9" /><circle class="seat" cx="296" cy="470" r="9" /><circle class="seat" cx="334" cy="470" r="9" /><circle class="seat" cx="372" cy="470" r="9" /><circle class="seat" cx="49" cy="504" r="8" /><circle class="lit" cx="87" cy="504" r="8" /><circle class="seat" cx="125" cy="504" r="8" /><circle class="seat" cx="163" cy="504" r="8" /><circle class="seat" cx="201" cy="504" r="8" /><circle class="seat" cx="239" cy="504" r="8" /><circle class="lit" cx="277" cy="504" r="8" /><circle class="seat" cx="315" cy="504" r="8" /><circle class="seat" cx="353" cy="504" r="8" /><circle class="seat" cx="391" cy="504" r="8" /><circle class="seat" cx="30" cy="538" r="7" /><circle class="seat" cx="68" cy="538" r="7" /><circle class="lit" cx="106" cy="538" r="7" /><circle class="seat" cx="144" cy="538" r="7" /><circle class="seat" cx="182" cy="538" r="7" /><circle class="seat" cx="220" cy="538" r="7" /><circle class="seat" cx="258" cy="538" r="7" /><circle class="lit" cx="296" cy="538" r="7" /><circle class="seat" cx="334" cy="538" r="7" /><circle class="seat" cx="372" cy="538" r="7" /><circle class="seat" cx="49" cy="572" r="6" /><circle class="seat" cx="87" cy="572" r="6" /><circle class="seat" cx="125" cy="572" r="6" /><circle class="lit" cx="163" cy="572" r="6" /><circle class="seat" cx="201" cy="572" r="6" /><circle class="seat" cx="239" cy="572" r="6" /><circle class="seat" cx="277" cy="572" r="6" /><circle class="seat" cx="315" cy="572" r="6" /><circle class="lit" cx="353" cy="572" r="6" /><circle class="seat" cx="391" cy="572" r="6" /></g>
+</svg></span>
           <span class="acc-num">05</span><span class="acc-label">Conferencias</span><span class="acc-bar"><i></i></span>
           <span class="acc-body"><h3>Conferencias</h3><p>Charlas sobre el poder de la voz y la comunicación con intención, adaptadas a congresos, empresas e instituciones educativas.</p><ul><li>Empresas</li><li>Universidades</li><li>Congresos</li></ul></span>
         </div>
