@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patricia Lucas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Idea: escenario institucional dominicano. Blanco de tarima, azul real de bandera y de su vestido, un acento rosa de sus tacones. Retrato grande, videos verticales como prueba. */
+:root{
+  --paper:#F7F7FB; --white:#FFFFFF; --ink:#14182B; --muted:#565B74; --line:#E1E2EE;
+  --royal:#2A3FB8; --royal-deep:#18257A; --rose:#D9467A;
+  --display:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --body:"Manrope", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--royal)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--ink);cursor:pointer;font-family:var(--body);font-size:16px;background:transparent;color:var(--ink)}
+.btn.solid{background:var(--royal);border-color:var(--royal);color:#fff}
+.btn.solid:hover{background:var(--royal-deep);border-color:var(--royal-deep)}
+.btn:hover{background:var(--ink);color:#fff}
+.btn.light{border-color:#fff;color:#fff}
+.btn.light:hover{background:#fff;color:var(--royal-deep)}
+/* Nav */
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
+.logo{font-family:var(--display);font-size:24px;text-decoration:none}
+.logo span{color:var(--rose)}
+.links{display:flex;gap:22px;align-items:center}
+.links a{text-decoration:none;font-weight:600;font-size:15px;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.links .btn{padding:9px 16px;font-size:14px;color:#fff}
+/* Hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:center;padding:56px 0 48px}
+.hero h1{font-size:clamp(46px,6.4vw,84px)}
+.hero h1 em{font-style:italic;color:var(--royal)}
+.hero p.lead{font-size:20px;color:var(--muted);max-width:52ch;margin-top:22px}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.portrait{position:relative;border-radius:200px 200px 22px 22px;overflow:hidden;aspect-ratio:9/14;background:var(--royal-deep);box-shadow:0 30px 60px -30px rgba(24,37,122,.55)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+.portrait figcaption{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(255,255,255,.94);border-radius:14px;padding:10px 14px;font-size:13px;font-weight:600}
+.portrait figcaption b{display:block;color:var(--royal);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+/* Escenarios */
+.stages{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white)}
+.stages .wrap{display:flex;gap:10px 34px;align-items:center;flex-wrap:wrap;padding-top:18px;padding-bottom:18px}
+.stages small{font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.stages span{font-family:var(--display);font-size:19px}
+/* Secciones */
+section.block{padding:84px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:38px}
+.head h2{font-size:clamp(34px,4.4vw,54px);margin-top:10px}
+.head p{color:var(--muted);max-width:48ch}
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.svc{padding:28px 26px 30px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.svc:not(:nth-child(3n)){border-right:1px solid var(--line)}
+.svc:not(:nth-child(3n+1)){padding-left:26px}
+.svc .n{font-family:var(--display);font-size:40px;color:var(--rose);line-height:1}
+.svc h3{font-size:26px}
+.svc p{color:var(--muted);font-size:16px}
+/* Cursos */
+.courses-bg{background:var(--royal-deep);color:#fff}
+.courses-bg .eyebrow{color:#FFB3CB}
+.courses-bg .head p{color:#C9CEF2}
+.courses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.course{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.course h3{font-size:30px}
+.course p{color:#D6DAF5}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags span{font-size:13px;font-weight:700;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.1)}
+.course .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;border-top:1px solid rgba(255,255,255,.14)}
+.course .foot small{color:#C9CEF2;font-weight:600}
+/* Videos */
+.reel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.clip{display:flex;flex-direction:column;gap:8px;margin:0}
+.clip video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px;background:#0f1430;display:block}
+.clip figcaption{font-size:14px;font-weight:600;line-height:1.35}
+.clip figcaption small{display:block;color:var(--muted);font-weight:500}
+/* Método */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:s}
+.step{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:10px}
+.step b{font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--rose);text-transform:uppercase}
+.step h3{font-size:26px}
+.step p{color:var(--muted);font-size:16px}
+/* Empresas */
+.corp{background:var(--rose);color:#fff;border-radius:28px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.corp h2{font-size:clamp(32px,4vw,48px)}
+.corp p{color:#FFE4EE;margin-top:14px}
+.corp ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-weight:600}
+.corp li{display:flex;gap:10px}
+.corp li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:#fff;margin-top:10px}
+/* Sobre */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,64px);align-items:center}
+.about video{width:100%;aspect-ratio:9/16;max-height:620px;object-fit:cover;border-radius:22px;background:#0f1430}
+.about h2{font-size:clamp(34px,4.4vw,54px);margin:10px 0 18px}
+.about p{color:var(--muted);margin-bottom:14px;max-width:60ch}
+.quote{font-family:var(--display);font-style:italic;font-size:28px;line-height:1.25;color:var(--ink);border-left:4px solid var(--rose);padding-left:18px;margin:22px 0}
+/* Contacto */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,56px);align-items:start}
+form{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:26px;display:grid;gap:14px}
+label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700}
+input,select,textarea{font:inherit;font-size:16px;font-weight:400;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);width:100%}
+textarea{min-height:110px;resize:vertical}
+.hint{font-size:13px;color:var(--muted)}
+.contact-list{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.contact-list a{display:flex;gap:12px;align-items:center;font-weight:700;text-decoration:none}
+.contact-list svg{width:22px;height:22px;color:var(--royal)}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-weight:600;font-size:15px;opacity:0;pointer-events:none;transition:opacity .2s;max-width:90vw;text-align:center}
+.toast.on{opacity:1}
+@media (max-width:900px){
+  .links a:not(.btn){display:none}
+  .hero,.about,.contact,.corp{grid-template-columns:1fr}
+  .portrait{max-width:420px}
+  .services{grid-template-columns:1fr}
+  .svc{padding:24px 0!important;border-right:0!important}
+  .courses,.steps{grid-template-columns:1fr}
+  .reel{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about video{max-height:520px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#inicio">Patricia Lucas<span>.</span></a>
+    <nav class="links" aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#en-escena">En escena</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a class="btn solid" href="#contacto">Hablemos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="wrap hero">
+    <div>
+      <p class="eyebrow">Maestra de ceremonias · Oratoria · Locución</p>
+      <h1 style="margin-top:16px">La voz que <em>sostiene</em> el escenario.</h1>
+      <p class="lead">Soy Patricia Lucas. Conduzco eventos institucionales y enseño a profesionales y equipos a hablar en público con seguridad, claridad e intención.</p>
+      <div class="row">
+        <a class="btn solid" href="#cursos">Ver cursos y capacitaciones</a>
+        <a class="btn" href="#en-escena">Verme en escena</a>
+      </div>
+    </div>
+    <figure class="portrait" style="margin:0">
+      <img src="hero.jpg" alt="Patricia Lucas hablando desde el podio de la XXVII Feria Internacional del Libro de Santo Domingo">
+      <figcaption><b>En escena</b>XXVII Feria Internacional del Libro, Santo Domingo</figcaption>
+    </figure>
+  </div>
+
+  <div class="stages">
+    <div class="wrap">
+      <small>Ha tomado el micrófono en</small>
+      <span>Congreso Regional PREIE 2026</span>
+      <span>XXVII Feria Internacional del Libro</span>
+      <span>Actividades del IDEICE</span>
+      <span>Actos académicos</span>
+    </div>
+  </div>
+
+  <section class="block" id="servicios">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Qué hago</p><h2>Seis formas de trabajar juntos</h2></div>
+        <p>Desde la conducción de tu evento hasta un programa para que tu equipo presente mejor. Presencial, virtual o híbrido.</p>
+      </div>
+      <div class="services">
+        <div class="svc"><span class="n">01</span><h3>Maestría de ceremonias</h3><p>Conducción de congresos, ferias, lanzamientos y actos institucionales, con guion, ritmo y protocolo.</p></div>
+        <div class="svc"><span class="n">02</span><h3>Cursos de oratoria</h3><p>Programas grupales para perder el miedo escénico y estructurar mensajes que se recuerdan.</p></div>
+        <div class="svc"><span class="n">03</span><h3>Capacitación para equipos</h3><p>Talleres a la medida para empresas e instituciones: presentaciones, reuniones y atención al público.</p></div>
+        <div class="svc"><span class="n">04</span><h3>Locución</h3><p>Tu marca con una voz clara y cálida: mensajes institucionales, videos, cursos y anuncios.</p></div>
+        <div class="svc"><span class="n">05</span><h3>Preparación de voceros</h3><p>Acompañamiento para quien representa a su organización frente a medios, juntas o escenarios.</p></div>
+        <div class="svc"><span class="n">06</span><h3>Conferencias</h3><p>Charlas sobre el poder de la voz y la comunicación con intención para tu evento o congreso.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block courses-bg" id="cursos">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Cursos y capacitaciones</p><h2>Aprende a usar tu voz</h2></div>
+        <p>Grupos pequeños, mucha práctica y retroalimentación personal. Escríbenos para conocer la próxima fecha.</p>
+      </div>
+      <div class="courses">
+        <article class="course">
+          <h3>Habla con seguridad</h3>
+          <p>Para quien se paraliza al hablar en público. Respiración, manejo de nervios, estructura de un mensaje y práctica frente al grupo.</p>
+          <div class="tags"><span>Nivel inicial</span><span>Presencial o virtual</span></div>
+          <div class="foot"><small>Próxima fecha: por anunciar</small><button class="btn light" data-interes="Curso: Habla con seguridad">Quiero información</button></div>
+        </article>
+        <article class="course">
+          <h3>Voz que se escucha</h3>
+          <p>Técnica vocal y locución: proyección, dicción, ritmo y cuidado de la voz para quien habla todos los días.</p>
+          <div class="tags"><span>Locución</span><span>Presencial</span></div>
+          <div class="foot"><small>Próxima fecha: por anunciar</small><button class="btn light" data-interes="Curso: Voz que se escucha">Quiero información</button></div>
+        </article>
+        <article class="course">
+          <h3>Del guion al escenario</h3>
+          <p>Maestría de ceremonias paso a paso: guion, protocolo, manejo de imprevistos y conexión con el público.</p>
+          <div class="tags"><span>Maestría de ceremonias</span><span>Presencial</span></div>
+          <div class="foot"><small>Próxima fecha: por anunciar</small><button class="btn light" data-interes="Curso: Del guion al escenario">Quiero información</button></div>
+        </article>
+        <article class="course">
+          <h3>Comunicación para equipos</h3>
+          <p>Programa para empresas e instituciones, diseñado según los retos de cada equipo: presentar resultados, liderar reuniones y atender al público.</p>
+          <div class="tags"><span>Empresas</span><span>A la medida</span></div>
+          <div class="foot"><small>Se cotiza según el grupo</small><button class="btn light" data-interes="Capacitación para mi equipo">Solicitar propuesta</button></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="en-escena">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">En escena</p><h2>Verla es la mejor presentación</h2></div>
+        <p>Momentos reales en congresos, ferias y actos académicos. Toca cualquier video para verlo con sonido.</p>
+      </div>
+      <div class="reel" id="reel"></div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><div><p class="eyebrow">Cómo trabajamos</p><h2>Practicar es lo que transforma</h2></div></div>
+      <div class="steps">
+        <div class="step"><b>Paso 1</b><h3>Escuchar tu punto de partida</h3><p>Antes de empezar, identificamos cómo hablas hoy y qué situación quieres dominar.</p></div>
+        <div class="step"><b>Paso 2</b><h3>Practicar en situaciones reales</h3><p>Cada sesión incluye ejercicios frente a otros y simulaciones del escenario que te toca enfrentar.</p></div>
+        <div class="step"><b>Paso 3</b><h3>Verte y ajustar</h3><p>Retroalimentación concreta, con grabaciones, para que notes tu avance de una semana a otra.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="corp">
+        <div>
+          <p class="eyebrow" style="color:#fff">Para empresas e instituciones</p>
+          <h2 style="margin-top:10px">Capacitaciones a la medida de tu equipo</h2>
+          <p>Diseñamos el programa según los retos de tu organización y lo medimos de principio a fin.</p>
+          <div style="margin-top:24px"><button class="btn light" data-interes="Capacitación para mi equipo">Solicitar propuesta</button></div>
+        </div>
+        <ul>
+          <li>Presentaciones efectivas para gerentes y líderes</li>
+          <li>Preparación de voceros institucionales</li>
+          <li>Comunicación con clientes y atención al público</li>
+          <li>Maestría de ceremonias para eventos internos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="sobre-mi" style="padding-top:0">
+    <div class="wrap about">
+      <video src="video5.mp4" poster="poster5.jpg" controls playsinline preload="none" aria-label="Patricia Lucas en la XXVII Feria Internacional del Libro de Santo Domingo"></video>
+      <div>
+        <p class="eyebrow">Sobre mí</p>
+        <h2>Hola, soy Patricia</h2>
+        <p>Soy comunicadora y maestra de ceremonias. He tomado el micrófono en congresos educativos, ferias del libro y actos académicos de República Dominicana, donde cada palabra tiene que llegar clara a cientos de personas.</p>
+        <p>Hoy comparto lo que el escenario me ha enseñado con quienes quieren hablar con seguridad: profesionales, docentes, líderes y equipos completos.</p>
+        <p class="quote">Hablar bien no es un don. Es una práctica.</p>
+        <a class="btn solid" href="#contacto">Trabajemos juntos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contacto" style="padding-top:0">
+    <div class="wrap contact">
+      <div>
+        <p class="eyebrow">Contacto</p>
+        <h2 style="font-size:clamp(34px,4.4vw,54px);margin-top:10px">Cuéntame qué necesitas</h2>
+        <p style="color:var(--muted);margin-top:14px">Un curso para ti, la conducción de tu evento o un programa para tu equipo. Te respondo con disponibilidad y propuesta.</p>
+        <div class="contact-list">
+          <a href="https://www.instagram.com/patricialucas__" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@patricialucas__</a>
+          <span id="waLine" class="contact-list" style="margin:0" hidden></span>
+        </div>
+      </div>
+      <form id="form" novalidate>
+        <label for="fNombre">Tu nombre<input id="fNombre" type="text" autocomplete="name" required></label>
+        <label for="fInteres">Me interesa
+          <select id="fInteres">
+            <option>Curso: Habla con seguridad</option>
+            <option>Curso: Voz que se escucha</option>
+            <option>Curso: Del guion al escenario</option>
+            <option>Capacitación para mi equipo</option>
+            <option>Maestría de ceremonias para un evento</option>
+            <option>Locución</option>
+            <option>Conferencia</option>
+          </select>
+        </label>
+        <label for="fMsg">Mensaje<textarea id="fMsg" placeholder="Fecha del evento, tamaño del grupo, lo que quieras contarme"></textarea></label>
+        <button class="btn solid" type="submit" id="fBtn">Enviar mensaje</button>
+        <p class="hint" id="fHint"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Patricia Lucas</span><span>Oratoria, locución y maestría de ceremonias</span></div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  'use strict';
+  // Configuración: escribe aquí el número de WhatsApp con código de país, solo dígitos (ej. 18095551234).
+  var WHATSAPP = '';
+  var INSTAGRAM = 'https://www.instagram.com/patricialucas__';
+
+  var CLIPS = [
+    ['video1.mp4','poster1.jpg','Congreso Regional PREIE 2026','Investigación e innovación educativa'],
+    ['video2.mp4','poster2.jpg','Congreso Regional PREIE 2026','Desde el podio'],
+    ['video4.mp4','poster4.jpg','XXVII Feria Internacional del Libro','Santo Domingo'],
+    ['video3.mp4','poster3.jpg','XXVII Feria Internacional del Libro','Vista desde el público'],
+    ['video6.mp4','poster6.jpg','Actividad del IDEICE','Ministerio de Educación'],
+    ['video7.mp4','poster7.jpg','Evento institucional','Antes de abrir el programa'],
+    ['video8.mp4','poster8.jpg','Acto de clausura','Programa académico'],
+    ['video5.mp4','poster5.jpg','XXVII Feria Internacional del Libro','Panel de investigación educativa']
+  ];
+  var reel = document.getElementById('reel');
+  reel.innerHTML = CLIPS.map(function(c,i){
+    return '<figure class="clip"><video src="'+c[0]+'" poster="'+c[1]+'" controls playsinline preload="none" aria-label="'+c[2]+'"></video><figcaption>'+c[2]+'<small>'+c[3]+'</small></figcaption></figure>';
+  }).join('');
+  // Solo un video sonando a la vez
+  document.addEventListener('play', function(e){
+    document.querySelectorAll('video').forEach(function(v){ if(v!==e.target) v.pause(); });
+  }, true);
+
+  var toastT;
+  function toast(m){ var t=document.getElementById('toast'); t.textContent=m; t.classList.add('on'); clearTimeout(toastT); toastT=setTimeout(function(){t.classList.remove('on');},3800); }
+
+  var hint = document.getElementById('fHint');
+  if (WHATSAPP) {
+    hint.textContent = 'Se abrirá WhatsApp con tu mensaje listo para enviar.';
+    var wl = document.getElementById('waLine');
+    wl.hidden = false;
+    wl.innerHTML = '<a href="https://wa.me/'+WHATSAPP+'" target="_blank" rel="noopener">WhatsApp: +'+WHATSAPP+'</a>';
+  } else {
+    hint.textContent = 'Copiaremos tu mensaje para que lo pegues en un mensaje directo de Instagram.';
+  }
+
+  document.querySelectorAll('[data-interes]').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.getElementById('fInteres').value = b.getAttribute('data-interes');
+      document.getElementById('contacto').scrollIntoView();
+      document.getElementById('fNombre').focus({preventScroll:true});
+    });
+  });
+
+  document.getElementById('form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var n = document.getElementById('fNombre').value.trim();
+    if (!n) { toast('Escribe tu nombre para continuar'); document.getElementById('fNombre').focus(); return; }
+    var msg = 'Hola, Patricia. Soy ' + n + '. Me interesa: ' + document.getElementById('fInteres').value + '.';
+    var extra = document.getElementById('fMsg').value.trim();
+    if (extra) msg += ' ' + extra;
+    var url = WHATSAPP ? 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg) : INSTAGRAM;
+    var link = document.createElement('a');
+    link.href = url; link.target = '_blank'; link.rel = 'noopener';
+    if (!WHATSAPP) {
+      try {
+        navigator.clipboard.writeText(msg).then(function(){ toast('Mensaje copiado. Pégalo en un mensaje directo de Instagram.'); }, function(){ toast('Abre Instagram y escríbele: ' + msg); });
+      } catch (err) { toast('Abre Instagram y escríbele: ' + msg); }
+    }
+    link.click();
+  });
+})();
+</script>
+</body>
+</html>
