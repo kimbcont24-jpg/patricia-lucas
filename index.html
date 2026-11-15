@@ -321,6 +321,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   // Configuración: escribe aquí el número de WhatsApp con código de país, solo dígitos (ej. 18095551234).
   var WHATSAPP = '';
   var INSTAGRAM = 'https://www.instagram.com/patricialucas__';
+  // Supabase: clave pública (publishable), solo permite insertar mensajes de contacto.
+  var SUPABASE_URL = 'https://tksyqqqemlawcqxfkcmb.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_R1dtjFjonl1_X7DAFcp9Lg_lfU8eadb';
 
   var CLIPS = [
     ['video1.mp4','poster1.jpg','Congreso Regional PREIE 2026','Investigación e innovación educativa'],
@@ -369,6 +372,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     var msg = 'Hola, Patricia. Soy ' + n + '. Me interesa: ' + document.getElementById('fInteres').value + '.';
     var extra = document.getElementById('fMsg').value.trim();
     if (extra) msg += ' ' + extra;
+    // Guarda el mensaje en Supabase (tabla pl_contactos)
+    try {
+      fetch(SUPABASE_URL + '/rest/v1/pl_contactos', {
+        method: 'POST',
+        headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+        body: JSON.stringify({ nombre: n.slice(0,120), interes: document.getElementById('fInteres').value, mensaje: extra.slice(0,2000) || null })
+      }).then(function(r){ if (r.ok) { document.getElementById('form').reset(); } }).catch(function(){});
+    } catch (err) {}
     var url = WHATSAPP ? 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg) : INSTAGRAM;
     var link = document.createElement('a');
     link.href = url; link.target = '_blank'; link.rel = 'noopener';
