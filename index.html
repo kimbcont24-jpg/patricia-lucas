@@ -7,7 +7,7 @@
 <meta name="description" content="Patricia Lucas conduce congresos, actos institucionales y académicos, presta su voz a marcas y entrena a profesionales para hablar en público con seguridad.">
 <meta property="og:title" content="Patricia Lucas | La voz de tu evento">
 <meta property="og:description" content="Maestría de ceremonias, locución, oratoria y marca personal en República Dominicana.">
-<meta property="og:image" content="hero.jpg">
+<meta property="og:image" content="hero-montaje.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -516,7 +516,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <ol>
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#voz">Voz comercial</a></li>
-    <li><a href="#en-escena">En escena</a></li>
     <li><a href="#por-que">Por qué ella</a></li>
     <li><a href="#cursos">Cursos</a></li>
     <li><a href="#sobre">Sobre Patricia</a></li>
@@ -540,7 +539,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <p class="lead rv d2">Patricia Lucas conduce congresos, actos institucionales y académicos, presta su voz a marcas y entrena a profesionales para hablar en público con seguridad.</p>
       <div class="ctas rv d3">
         <a class="btn rose" href="#contacto">Contrátala para tu evento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn ghost-w" href="#en-escena">Verla en escena</a>
+        <a class="btn ghost-w" href="#servicios">Ver servicios</a>
       </div>
     </div>
     <a class="hero-card rv d3" href="#contacto" data-interes="Maestría de ceremonias para un evento">
@@ -735,28 +734,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     </div>
   </section>
 
-  <!-- EN ESCENA -->
-  <section class="block stage-bg" id="en-escena">
-    <div class="wrap">
-      <div class="head">
-        <div><span class="eyebrow rv">En escena</span><h2 class="rv d1">Verla conducir <em>lo dice todo</em></h2></div>
-        <p class="rv d2">Momentos reales en congresos, ferias y actos académicos de República Dominicana. Elige un video.</p>
-      </div>
-      <div class="stage-grid">
-        <div class="feature rv">
-          <span class="tag" id="featTag">XXVII Feria Internacional del Libro</span>
-          <video id="feat" src="video4.mp4" poster="poster4.jpg" controls playsinline preload="metadata"></video>
-        </div>
-        <div class="stage-side">
-          <figure class="mini on rv d1"><button type="button" data-v="video4.mp4" data-p="poster4.jpg" data-t="XXVII Feria Internacional del Libro"><img src="poster4.jpg" alt="Patricia en la Feria del Libro"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Feria Internacional del Libro<small>Santo Domingo</small></figcaption></figure>
-          <figure class="mini rv d2"><button type="button" data-v="video1.mp4" data-p="poster1.jpg" data-t="Congreso Regional PREIE 2026"><img src="poster1.jpg" alt="Patricia en el Congreso PREIE 2026"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Congreso Regional PREIE 2026<small>Investigación educativa</small></figcaption></figure>
-          <figure class="mini rv d2"><button type="button" data-v="video6.mp4" data-p="poster6.jpg" data-t="Actividad del IDEICE"><img src="poster6.jpg" alt="Patricia en una actividad del IDEICE"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Actividad del IDEICE<small>Ministerio de Educación</small></figcaption></figure>
-          <figure class="mini rv d3"><button type="button" data-v="video8.mp4" data-p="poster8.jpg" data-t="Acto de clausura académico"><img src="poster8.jpg" alt="Patricia en un acto de clausura"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Acto de clausura<small>Programa académico</small></figcaption></figure>
-          <p class="stage-quote rv">“Cada evento tiene un ritmo. Mi trabajo es que nadie lo note.”</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- POR QUÉ ELLA: secciones que se apilan -->
   <section class="block" id="por-que">
@@ -940,17 +917,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   acc.addEventListener('mouseleave', function(){ hovering = false; });
   activate(0);
 
-  /* Videos: el principal cambia al elegir otro */
-  var feat = document.getElementById('feat'), tag = document.getElementById('featTag');
-  document.querySelectorAll('.mini button').forEach(function(b){
-    b.addEventListener('click', function(){
-      document.querySelectorAll('.mini').forEach(function(m){ m.classList.remove('on'); });
-      b.parentNode.classList.add('on');
-      feat.poster = b.dataset.p; feat.src = b.dataset.v; tag.textContent = b.dataset.t;
-      var p = feat.play(); if (p && p.catch) p.catch(function(){});
-      if (window.innerWidth < 980) feat.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
-    });
-  });
 
   /* Secciones apiladas: la de atrás se encoge un poco */
   var cards = Array.prototype.slice.call(document.querySelectorAll('.stack-card'));
@@ -1016,34 +982,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       if (bg.paused) { var pr = bg.play(); if (pr && pr.catch) pr.catch(function(){}); pz.setAttribute('aria-pressed','false'); pz.setAttribute('aria-label','Pausar video de fondo'); }
       else { bg.pause(); pz.setAttribute('aria-pressed','true'); pz.setAttribute('aria-label','Reproducir video de fondo'); }
     });
-  }
-
-  /* Video de portada: recorre varios clips */
-  var hv = document.getElementById('hv');
-  if (hv) {
-    var clips = [['video4.mp4','poster4.jpg','XXVII Feria Internacional del Libro'],['video1.mp4','poster1.jpg','Congreso Regional PREIE 2026'],['video6.mp4','poster6.jpg','Actividad del IDEICE'],['video8.mp4','poster8.jpg','Acto de clausura académico']];
-    var ci = 0, dots = Array.prototype.slice.call(document.querySelectorAll('#hvDots button')), hvT = document.getElementById('hvT');
-    dots.forEach(function(d){ var i = document.createElement('i'); d.appendChild(i); });
-    function showClip(i){
-      ci = (i + clips.length) % clips.length;
-      hv.classList.add('fade');
-      setTimeout(function(){
-        hv.src = clips[ci][0]; hv.poster = clips[ci][1]; hvT.textContent = clips[ci][2];
-        var pr = hv.play(); if (pr && pr.catch) pr.catch(function(){});
-        hv.classList.remove('fade');
-      }, 350);
-      dots.forEach(function(d, k){ d.classList.toggle('on', k === ci); d.firstChild.style.width = k < ci ? '100%' : '0'; });
-    }
-    hv.addEventListener('timeupdate', function(){ if (hv.duration) dots[ci].firstChild.style.width = (hv.currentTime / hv.duration * 100) + '%'; });
-    hv.addEventListener('ended', function(){ showClip(ci + 1); });
-    dots.forEach(function(d, k){ d.addEventListener('click', function(){ showClip(k); }); });
-    var snd = document.getElementById('hvSound');
-    snd.addEventListener('click', function(){
-      hv.muted = !hv.muted; snd.setAttribute('aria-pressed', !hv.muted);
-      snd.querySelector('span').textContent = hv.muted ? 'Activar sonido' : 'Silenciar';
-      if (!hv.muted) { var pr = hv.play(); if (pr && pr.catch) pr.catch(function(){}); }
-    });
-    if (reduce) { hv.removeAttribute('autoplay'); hv.pause(); }
   }
 
   /* Micrófono: sigue el cursor */
